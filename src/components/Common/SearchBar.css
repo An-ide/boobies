@@ -1,0 +1,85 @@
+/* SearchBar.css */
+.working-search-bar {
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-form {
+  width: 100%;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 50px;
+  padding: 4px 12px;
+  transition: border-color 0.3s;
+}
+
+.search-wrapper:focus-within {
+  border-color: #4f46e5;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  padding: 10px 8px;
+  font-size: 14px;
+  outline: none;
+  background: transparent;
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+.clear-button {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 4px 8px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear-button:hover {
+  color: #ef4444;
+}
+
+.submit-button {
+  background: #4f46e5;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-button:hover {
+  background: #4338ca;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .working-search-bar {
+    max-width: 100%;
+  }
+  
+  .search-wrapper {
+    border-radius: 8px;
+  }
+  
+  .submit-button {
+    padding: 6px 12px;
+  }
+}

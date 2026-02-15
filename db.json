@@ -1,0 +1,1950 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Admin User",
+      "email": "admin@example.com",
+      "password": "admin123",
+      "role": "admin",
+      "isActive": true,
+      "createdAt": "2024-01-01T10:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "name": "John Walker",
+      "email": "john@example.com",
+      "password": "password123",
+      "role": "user",
+      "isActive": true,
+      "createdAt": "2024-01-02T11:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "name": "Sarah Miller",
+      "email": "sarah@example.com",
+      "password": "password123",
+      "role": "user",
+      "isActive": true,
+      "createdAt": "2024-01-03T12:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "name": "Mike Johnson",
+      "email": "mike@example.com",
+      "password": "password123",
+      "role": "user",
+      "isActive": true,
+      "createdAt": "2024-01-04T13:00:00.000Z"
+    }
+  ],
+  "categories": [
+    "Work Boots",
+    "Heritage Boots",
+    "Chelsea Boots",
+    "Chukka Boots",
+    "Hiking Boots",
+    "Tactical Boots",
+    "Cowboy Boots",
+    "Winter Boots",
+    "Rain Boots",
+    "Dress Boots",
+    "Motorcycle Boots",
+    "Moc Toe Boots"
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Red Wing Heritage Iron Ranger 8085",
+      "description": "An American icon, the Iron Ranger was originally built for iron miners in the 1930s. It features a signature leather toe cap, speed hooks, and a Vibram 430 Mini-lug sole.",
+      "price": 349.99,
+      "category": "Heritage Boots",
+      "images": [
+        "https://embed.widencdn.net/img/redwing/fcwacxemrq/1200x1200px/RW08085C_MUL_N1_0416.webp?keep=S&position=S&crop=no&color=F2F2F2"
+      ],
+      "brand": "Red Wing",
+      "isActive": true,
+      "stock": 45,
+      "sizes": [
+        "7",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Copper Rough & Tough",
+        "Amber Harness",
+        "Black Harness"
+      ],
+      "rating": 4.9,
+      "reviewCount": 1420,
+      "features": [
+        "Goodyear Welt",
+        "Puritan Triple Stitch",
+        "Chrome Hardware",
+        "Made in USA"
+      ],
+      "createdAt": "2024-01-10T09:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "name": "White's Boots Smokejumper",
+      "description": "The benchmark in fire boots, White's Smokejumper set the standard for the industry. Hand-sewn and hand-lasted for unparalleled arch support.",
+      "price": 659.95,
+      "category": "Work Boots",
+      "images": [
+        "https://calfiregear.com/wp-content/uploads/2020/03/400V.jpg"
+      ],
+      "brand": "White's Boots",
+      "isActive": true,
+      "stock": 18,
+      "sizes": [
+        "8",
+        "9",
+        "10",
+        "10.5",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Black Smooth",
+        "Brown Distressed"
+      ],
+      "rating": 5,
+      "reviewCount": 312,
+      "features": [
+        "Hand-Sewn Stitchdown",
+        "Vibram Fire & Ice Sole",
+        "Orthopedic Arch Support",
+        "Rebuildable/Resoleable"
+      ],
+      "createdAt": "2024-01-11T10:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "name": "Viberg Service Boot 2030",
+      "description": "The Service Boot is Viberg's most iconic product, based on an original 1930s design. Features premium Horween leather and a refined silhouette.",
+      "price": 785,
+      "category": "Heritage Boots",
+      "images": [
+        "https://viberg.com/cdn/shop/files/vibergservice-boot-2030-natural-chromexcel-930637.jpg?v=1736010897&width=640"
+      ],
+      "brand": "Viberg",
+      "isActive": true,
+      "stock": 12,
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Brown Chromexcel",
+        "Natural Shell Cordovan"
+      ],
+      "rating": 4.9,
+      "reviewCount": 185,
+      "features": [
+        "Stitchdown Construction",
+        "Dainite Sole",
+        "Horween Leather",
+        "Small Batch Production"
+      ],
+      "createdAt": "2024-01-12T11:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "name": "Nicks Boots BuilderPro",
+      "description": "Widely considered the toughest work boot on the planet. Overbuilt with 7-8oz leather to withstand extreme abuse.",
+      "price": 595,
+      "category": "Work Boots",
+      "images": [
+        "https://nicksboots.com/cdn/shop/files/builderpro_1964_brown_side.jpg?v=1750400424&width=1214"
+      ],
+      "brand": "Nicks Boots",
+      "isActive": true,
+      "stock": 25,
+      "sizes": [
+        "8",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "12",
+        "13"
+      ],
+      "colors": [
+        "Walnut Roughout",
+        "Black MaxSupport"
+      ],
+      "rating": 4.9,
+      "reviewCount": 540,
+      "features": [
+        "Screwed/Stitched Sole",
+        "10 inch Height",
+        "Oak Tanned Leather Insole",
+        "Legendary Durability"
+      ],
+      "createdAt": "2024-01-13T12:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "name": "Edward Green Galway",
+      "description": "The Galway is a classic field boot, refined for the modern gentleman. Perhaps the most prestigious dress boot in the world.",
+      "price": 1650,
+      "category": "Dress Boots",
+      "images": [
+        "https://borghiniclassic.com/cdn/shop/products/27191.jpg?v=1672308939&width=1445"
+      ],
+      "brand": "Edward Green",
+      "isActive": true,
+      "stock": 5,
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "colors": [
+        "Dark Oak Calf",
+        "Rosewood Country Calf"
+      ],
+      "rating": 5,
+      "reviewCount": 88,
+      "features": [
+        "Hand-Finished Leather",
+        "Ridgeway Sole",
+        "Shearling Lining Option",
+        "Made in Northampton"
+      ],
+      "createdAt": "2024-01-14T13:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "name": "RM Williams Signature Craftsman",
+      "description": "The pinnacle of the Australian Chelsea boot. Crafted from a single piece of premium veal calf leather.",
+      "price": 645,
+      "category": "Chelsea Boots",
+      "images": [
+        "https://res.cloudinary.com/rmwdam/image/upload/b_rgb:f5f0e1,c_pad,dpr_2.0,f_auto,h_500,q_auto,w_500/c_pad,h_500,w_500/v1/products/images_png/B543O_FCH01/B543O.T2FCH_Comfort-Craftsman_6?pgw=1"
+      ],
+      "brand": "RM Williams",
+      "isActive": true,
+      "stock": 20,
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Chestnut",
+        "Black"
+      ],
+      "rating": 4.9,
+      "reviewCount": 420,
+      "features": [
+        "Single Piece Leather",
+        "Chisel Square Toe",
+        "Veal Calf Skin",
+        "Hand-Signed by Maker"
+      ],
+      "createdAt": "2024-01-15T14:00:00.000Z"
+    },
+    {
+      "id": 7,
+      "name": "Blundstone #585 Rustic Brown",
+      "description": "The ultimate everyday Chelsea. Part of the Classic Series, offers a supple rustic leather finish and internal cushioning.",
+      "price": 229.95,
+      "category": "Chelsea Boots",
+      "images": [
+        "https://di2ponv0v5otw.cloudfront.net/posts/2025/12/25/694dd001d8024cca31080379/m_694dd02ab14a06728d19d1c3.jpg"
+      ],
+      "brand": "Blundstone",
+      "isActive": true,
+      "stock": 90,
+      "sizes": [
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Rustic Brown",
+        "Rustic Black"
+      ],
+      "rating": 4.8,
+      "reviewCount": 11200,
+      "features": [
+        "SPS Max Comfort",
+        "Removable Footbed",
+        "Lightweight Design",
+        "Shock Protection System"
+      ],
+      "createdAt": "2024-01-16T15:00:00.000Z"
+    },
+    {
+      "id": 8,
+      "name": "Alden 403 'Indy' Boot",
+      "description": "The boot famously worn by Harrison Ford in the Indiana Jones films. Built on the TruBalance last.",
+      "price": 635,
+      "category": "Heritage Boots",
+      "images": [
+        "https://www.burgundschild.com/cdn/shop/products/Alden_WorkBoot_braun-4.jpg?v=1706612911&width=2048"
+      ],
+      "brand": "Alden",
+      "isActive": true,
+      "stock": 15,
+      "sizes": [
+        "7",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Brown Chromexcel",
+        "Tan Suede"
+      ],
+      "rating": 4.9,
+      "reviewCount": 890,
+      "features": [
+        "TruBalance Last",
+        "Neo-Cork Outsole",
+        "Tempered Steel Shank",
+        "Made in New England"
+      ],
+      "createdAt": "2024-01-17T16:00:00.000Z"
+    },
+    {
+      "id": 9,
+      "name": "Wolverine 1000 Mile Original",
+      "description": "The original American work boot, designed in 1914. Meticulously handcrafted in Big Rapids, Michigan.",
+      "price": 415,
+      "category": "Heritage Boots",
+      "images": [
+        "https://di2ponv0v5otw.cloudfront.net/posts/2025/11/14/6917b16fd6c0dc373e3fd921/m_6917b170bdcb04616d7bee09.jpeg"
+      ],
+      "brand": "Wolverine",
+      "isActive": true,
+      "stock": 30,
+      "sizes": [
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Brown",
+        "Black",
+        "Cordovan No. 8"
+      ],
+      "rating": 4.7,
+      "reviewCount": 1250,
+      "features": [
+        "Horween Chromexcel",
+        "Leather Outsole",
+        "Vibram Heel",
+        "Made in USA"
+      ],
+      "createdAt": "2024-01-18T17:00:00.000Z"
+    },
+    {
+      "id": 10,
+      "name": "Clarks Originals Desert Boot",
+      "description": "The world's first 'dress casual' shoe. Nathan Clark's 1950 design remains unchanged.",
+      "price": 160,
+      "category": "Chukka Boots",
+      "images": [
+        "https://cdn.media.amplience.net/i/clarks/26155523_GW_1"
+      ],
+      "brand": "Clarks",
+      "isActive": true,
+      "stock": 200,
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Beeswax Leather",
+        "Sand Suede"
+      ],
+      "rating": 4.5,
+      "reviewCount": 15400,
+      "features": [
+        "Natural Crepe Sole",
+        "Steads Suede",
+        "Stitchdown Construction",
+        "Authentic 1950 Design"
+      ],
+      "createdAt": "2024-01-19T18:00:00.000Z"
+    },
+    {
+      "id": 11,
+      "name": "Danner Mountain Light",
+      "description": "The standard-bearer for hiking boots since 1979. Handcrafted in Portland, Oregon.",
+      "price": 440,
+      "category": "Hiking Boots",
+      "images": [
+        "https://www.burgundschild.com/cdn/shop/files/DannermountainlightcascadeClovis52.jpg?v=1723554519&width=2048"
+      ],
+      "brand": "Danner",
+      "isActive": true,
+      "stock": 25,
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Cascade Clovis",
+        "Brown"
+      ],
+      "rating": 4.9,
+      "reviewCount": 2100,
+      "features": [
+        "One-Piece Upper",
+        "Gore-Tex Waterproof",
+        "Vibram Kletterlift",
+        "Stitchdown Construction"
+      ],
+      "createdAt": "2024-01-20T19:00:00.000Z"
+    },
+    {
+      "id": 12,
+      "name": "Salomon Quest 4D GTX",
+      "description": "Modern technical hiking at its best. Uses a backpack-inspired chassis to support the foot.",
+      "price": 235,
+      "category": "Hiking Boots",
+      "images": [
+        "https://cdn.military.eu/en/media/catalog/product/2/7/2787220_buty-salomon-quest-4d-gtx-forces-2-high-en-coyote-glowne.jpg?width=800&height=640&store=military_en&image-type=image"
+      ],
+      "brand": "Salomon",
+      "isActive": true,
+      "stock": 65,
+      "sizes": [
+        "8",
+        "8.5",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Olive Night",
+        "Magnet Black"
+      ],
+      "rating": 4.8,
+      "reviewCount": 3400,
+      "features": [
+        "Gore-Tex Performance",
+        "4D Advanced Chassis",
+        "Contagrip TD",
+        "Ortholite Sockliner"
+      ],
+      "createdAt": "2024-01-21T09:00:00.000Z"
+    },
+    {
+      "id": 13,
+      "name": "Merrell Moab 3 Mid GTX",
+      "description": "The 'Mother of All Boots' featuring recycled materials and out-of-the-box comfort.",
+      "price": 165,
+      "category": "Hiking Boots",
+      "images": [
+        "https://s7d4.scene7.com/is/image/WolverineWorldWide/MRLM-J035791-021621-S21-001?$dw-pdp-mobile$"
+      ],
+      "brand": "Merrell",
+      "isActive": true,
+      "stock": 140,
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13"
+      ],
+      "colors": [
+        "Walnut",
+        "Beluga"
+      ],
+      "rating": 4.7,
+      "reviewCount": 9800,
+      "features": [
+        "Gore-Tex Membrane",
+        "Vibram TC5+ Sole",
+        "Recycled Laces",
+        "Air Cushion Heel"
+      ],
+      "createdAt": "2024-01-22T10:00:00.000Z"
+    },
+    {
+      "id": 14,
+      "name": "Lowa Zephyr GTX Mid",
+      "description": "Favored by Special Forces. Provides the support of a boot with the agility of a sneaker.",
+      "price": 260,
+      "category": "Tactical Boots",
+      "images": [
+        "https://5.imimg.com/data5/RU/JP/MY-40809949/zephyr-gtx-mid-made-in-europe-shoes-anthracite-blue-500x500.jpg"
+      ],
+      "brand": "Lowa",
+      "isActive": true,
+      "stock": 42,
+      "sizes": [
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Coyote Op",
+        "Black"
+      ],
+      "rating": 4.9,
+      "reviewCount": 1150,
+      "features": [
+        "Monowrap Frame",
+        "Gore-Tex Lining",
+        "Lowa Cross Sole",
+        "Closed Lace Hooks"
+      ],
+      "createdAt": "2024-01-23T11:00:00.000Z"
+    },
+    {
+      "id": 15,
+      "name": "Crispi Thor II GTX",
+      "description": "Lightweight, technical tactical boot designed for fast movements in rugged environments.",
+      "price": 310,
+      "category": "Tactical Boots",
+      "images": [
+        "https://cdn11.bigcommerce.com/s-tz6xv0ocgq/images/stencil/1280x1280/products/60481/78040/CRP95201__48379.1749070503.jpg?c=1"
+      ],
+      "brand": "Crispi",
+      "isActive": true,
+      "stock": 35,
+      "sizes": [
+        "9",
+        "10",
+        "11",
+        "12",
+        "13"
+      ],
+      "colors": [
+        "Grey/Black",
+        "Coyote"
+      ],
+      "rating": 4.9,
+      "reviewCount": 240,
+      "features": [
+        "Vibram Megagrip",
+        "Gore-Tex Lining",
+        "Board Lasting",
+        "PU Midsole"
+      ],
+      "createdAt": "2024-01-24T12:00:00.000Z"
+    },
+    {
+      "id": 16,
+      "name": "Tecovas The Cartwright",
+      "description": "The quintessential cowboy boot. Made from ultra-soft bovine leather with a classic round toe.",
+      "price": 295,
+      "category": "Cowboy Boots",
+      "images": [
+        "https://www.cowpokesonline.com/wp-content/uploads/2025/05/10001-THE-CARTWRIGHT-SCOTCH.jpg"
+      ],
+      "brand": "Tecovas",
+      "isActive": true,
+      "stock": 55,
+      "sizes": [
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Bourbon Calf",
+        "Midnight Calf"
+      ],
+      "rating": 4.8,
+      "reviewCount": 5600,
+      "features": [
+        "Handcrafted",
+        "Lemonwood Pegged",
+        "12-inch Shaft",
+        "Angled Heel"
+      ],
+      "createdAt": "2024-01-25T13:00:00.000Z"
+    },
+    {
+      "id": 17,
+      "name": "Lucchese Classic Heritage",
+      "description": "Lucchese has been building the finest western boots since 1883. Fits like a glove.",
+      "price": 895,
+      "category": "Cowboy Boots",
+      "images": [
+        "https://www.saratogasaddlery.com/cdn/shop/files/LuccheseGY3510RR_R01_C01_1200x_feb663bd-a1e8-422f-a3b4-ba60a097be90_grande.webp?v=1699602853"
+      ],
+      "brand": "Lucchese",
+      "isActive": true,
+      "stock": 10,
+      "sizes": [
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Tan Burnished",
+        "Black Cherry"
+      ],
+      "rating": 5,
+      "reviewCount": 110,
+      "features": [
+        "Hand-Lasted",
+        "Mad Dog Goat Leather",
+        "Kennedy Stitch Pattern",
+        "Leather Sole"
+      ],
+      "createdAt": "2024-01-26T14:00:00.000Z"
+    },
+    {
+      "id": 18,
+      "name": "UGG Butte Winter Boot",
+      "description": "A high-performance winter boot rated for -32°C. Lined with plush wool.",
+      "price": 240,
+      "category": "Winter Boots",
+      "images": [
+        "https://dms.deckers.com/ugg/image/upload/t_product-medium-wp/v1751041587/1170770-CHE_1.png?_s=RAABAB0"
+      ],
+      "brand": "UGG",
+      "isActive": true,
+      "stock": 150,
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13"
+      ],
+      "colors": [
+        "Worchester",
+        "Black"
+      ],
+      "rating": 4.8,
+      "reviewCount": 4200,
+      "features": [
+        "UGGpure Wool Lining",
+        "Vibram Outsole",
+        "Cold Weather Rated",
+        "DryTech Construction"
+      ],
+      "createdAt": "2024-01-27T15:00:00.000Z"
+    },
+    {
+      "id": 19,
+      "name": "Sorel Caribou Waterproof",
+      "description": "The original Sorel Caribou features a nubuck upper and a removable felt liner.",
+      "price": 200,
+      "category": "Winter Boots",
+      "images": [
+        "https://media.sorel.com/i/sorel/1002871_281_f?w=768&h=806&fmt=auto"
+      ],
+      "brand": "Sorel",
+      "isActive": true,
+      "stock": 105,
+      "sizes": [
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13"
+      ],
+      "colors": [
+        "Buff",
+        "Black Stone"
+      ],
+      "rating": 4.7,
+      "reviewCount": 6800,
+      "features": [
+        "Removable 9mm Liner",
+        "Vulcanized Rubber Shell",
+        "Snow Cuff",
+        "Waterproof Nubuck"
+      ],
+      "createdAt": "2024-01-28T16:00:00.000Z"
+    },
+    {
+      "id": 20,
+      "name": "Hunter Original Tall",
+      "description": "First introduced in 1956. Handcrafted from 28 natural rubber parts.",
+      "price": 185,
+      "category": "Rain Boots",
+      "images": [
+        "https://hunterboots.com/cdn/shop/files/womens-original-tall-rain-boots-black-885547.jpg"
+      ],
+      "brand": "Hunter",
+      "isActive": true,
+      "stock": 180,
+      "sizes": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "colors": [
+        "Hunter Green",
+        "Black"
+      ],
+      "rating": 4.5,
+      "reviewCount": 12400,
+      "features": [
+        "Natural Rubber",
+        "Handcrafted",
+        "Fully Waterproof",
+        "Signature Tread Pattern"
+      ],
+      "createdAt": "2024-01-29T17:00:00.000Z"
+    },
+    {
+      "id": 21,
+      "name": "L.L.Bean 8\" Bean Boots",
+      "description": "The original Maine Hunting Shoe. Designed by L.L. Bean himself in 1912.",
+      "price": 159,
+      "category": "Rain Boots",
+      "images": [
+        "https://cdni.llbean.net/is/image/wim/523483_46651_41?hei=1095&wid=950&resMode=sharp2&defaultImage=llbprod/523483_46651_41"
+      ],
+      "brand": "L.L.Bean",
+      "isActive": true,
+      "stock": 60,
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Tan/Brown"
+      ],
+      "rating": 4.8,
+      "reviewCount": 8900,
+      "features": [
+        "Triple-Stitched",
+        "Steel Shank",
+        "Hand-Sewn in Maine",
+        "Chain Pattern Sole"
+      ],
+      "createdAt": "2024-01-30T18:00:00.000Z"
+    },
+    {
+      "id": 22,
+      "name": "Belstaff Trialmaster Boot",
+      "description": "Inspired by British motorcycling heritage. Water-repellent calf leather and buckled straps.",
+      "price": 495,
+      "category": "Motorcycle Boots",
+      "images": [
+        "https://www.motolegends.com/Images/Product/Default/medium/BEL2053_1.jpg"
+      ],
+      "brand": "Belstaff",
+      "isActive": true,
+      "stock": 15,
+      "sizes": [
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Black",
+        "Cognac"
+      ],
+      "rating": 4.7,
+      "reviewCount": 310,
+      "features": [
+        "Water-Repellent",
+        "Zip & Buckle Closure",
+        "Vibram Rubber Sole",
+        "Calf Leather Lining"
+      ],
+      "createdAt": "2024-01-31T19:00:00.000Z"
+    },
+    {
+      "id": 23,
+      "name": "Daytona Strive GTX",
+      "description": "Professional racing boot. Hand-made in Germany with a Gore-Tex membrane.",
+      "price": 520,
+      "category": "Motorcycle Boots",
+      "images": [
+        "https://superbikestore.in/cdn/shop/products/StriveGTX-schwarz-re.jpg?v=1668762435"
+      ],
+      "brand": "Daytona",
+      "isActive": true,
+      "stock": 12,
+      "sizes": [
+        "40",
+        "42",
+        "44",
+        "46"
+      ],
+      "colors": [
+        "Black",
+        "Black/White"
+      ],
+      "rating": 5,
+      "reviewCount": 180,
+      "features": [
+        "Handmade in Germany",
+        "Gore-Tex Membrane",
+        "Shin Protection",
+        "Titanium Toe Sliders"
+      ],
+      "createdAt": "2024-02-01T20:00:00.000Z"
+    },
+    {
+      "id": 24,
+      "name": "Allen Edmonds Higgins Mill",
+      "description": "A clean, simple service boot crafted from premium Horween Chromexcel leather.",
+      "price": 495,
+      "category": "Dress Boots",
+      "images": [
+        "https://www.allenedmonds.com/blob/product-images/39099/ec/45/00803/ec4500803_single_feed1000.jpg"
+      ],
+      "brand": "Allen Edmonds",
+      "isActive": true,
+      "stock": 25,
+      "sizes": [
+        "8",
+        "8.5",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Brown Chromexcel",
+        "Black"
+      ],
+      "rating": 4.8,
+      "reviewCount": 1200,
+      "features": [
+        "360 Degree Welt",
+        "Dainite Sole",
+        "Horween Leather",
+        "CustomCork Midsole"
+      ],
+      "createdAt": "2024-02-02T21:00:00.000Z"
+    },
+    {
+      "id": 25,
+      "name": "Crockett & Jones Coniston",
+      "description": "A higher-leg derby boot with a straight toe cap. A staple of English country style.",
+      "price": 725,
+      "category": "Heritage Boots",
+      "images": [
+        "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQJx18177RIXNgEcyZLMG6z2jzOv7YCp0y3MBqQGnbWhEASUDa9a9b94HHFL8riSs303i9SuFfkh8u1hmi7sVCrM_XvBne1Tg"
+      ],
+      "brand": "Crockett & Jones",
+      "isActive": true,
+      "stock": 8,
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "colors": [
+        "Dark Brown Scotch Grain"
+      ],
+      "rating": 4.9,
+      "reviewCount": 230,
+      "features": [
+        "325 Last",
+        "Dainite Sole",
+        "Storm Welted",
+        "Made in England"
+      ],
+      "createdAt": "2024-02-03T22:00:00.000Z"
+    },
+    {
+      "id": 26,
+      "name": "Tricker's Stow Country Boot",
+      "description": "The definitive English country boot, famous for its heavy brogueing and rugged durability.",
+      "price": 625,
+      "category": "Heritage Boots",
+      "images": [
+        "https://trickers.com/cdn/shop/products/stow-country-boot-black-965884.jpg?v=1707907289"
+      ],
+      "brand": "Tricker's",
+      "isActive": true,
+      "stock": 14,
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "colors": [
+        "Acorn Antique",
+        "Marron Antique"
+      ],
+      "rating": 4.9,
+      "reviewCount": 156,
+      "features": [
+        "Goodyear Welt",
+        "Bellows Tongue",
+        "Double Leather Sole",
+        "Made in Northampton"
+      ],
+      "createdAt": "2024-02-04T10:00:00.000Z"
+    },
+    {
+      "id": 27,
+      "name": "Wesco Jobmaster",
+      "description": "One of the most versatile work boots ever made, designed for ultimate protection and comfort.",
+      "price": 545,
+      "category": "Work Boots",
+      "images": [
+        "https://bakershoe.com/cdn/shop/files/Wesco_leather_work_boots_jobmaster_lace_to_toe_1080x.jpg?v=1738552752"
+      ],
+      "brand": "Wesco",
+      "isActive": true,
+      "stock": 10,
+      "sizes": [
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Black Tie Domain",
+        "Brown"
+      ],
+      "rating": 4.8,
+      "reviewCount": 92,
+      "features": [
+        "Stitchdown Construction",
+        "Vibram 100 Sole",
+        "Hard Toe",
+        "Fully Leather Lined"
+      ],
+      "createdAt": "2024-02-05T11:00:00.000Z"
+    },
+    {
+      "id": 28,
+      "name": "Meindl Island MFS Active",
+      "description": "The choice of serious mountain trekkers worldwide. Features Memory Foam System for a custom fit.",
+      "price": 380,
+      "category": "Hiking Boots",
+      "images": [
+        "https://www.meindl.co.uk/wp-content/uploads/2020/09/2816-10_island_MFS_active-2000x2000-1.jpg"
+      ],
+      "brand": "Meindl",
+      "isActive": true,
+      "stock": 22,
+      "sizes": [
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Brown"
+      ],
+      "rating": 5,
+      "reviewCount": 412,
+      "features": [
+        "Gore-Tex Lining",
+        "Digafix Lacing",
+        "Vibram Multigrip",
+        "MFS Memory Foam"
+      ],
+      "createdAt": "2024-02-06T12:00:00.000Z"
+    },
+    {
+      "id": 29,
+      "name": "Guidi 988 Back Zip",
+      "description": "Artisanal Italian luxury. Object-dyed and featuring a signature back zipper and stacked leather heel.",
+      "price": 1450,
+      "category": "Dress Boots",
+      "images": [
+        "https://rawlooks.com/app/uploads/2022/07/GUIDI-988-men-back-zip-boot-herren-schuh-stiefel-horse-full-grain-leather-black-hide-m-3.jpg"
+      ],
+      "brand": "Guidi",
+      "isActive": true,
+      "stock": 4,
+      "sizes": [
+        "41",
+        "42",
+        "43",
+        "44",
+        "45"
+      ],
+      "colors": [
+        "Full Grain Black",
+        "Oxblood"
+      ],
+      "rating": 4.7,
+      "reviewCount": 45,
+      "features": [
+        "Horse Leather",
+        "Object Dyed",
+        "Excella Back Zip",
+        "Handmade in Italy"
+      ],
+      "createdAt": "2024-02-07T13:00:00.000Z"
+    },
+    {
+      "id": 30,
+      "name": "Grant Stone Brass Boot",
+      "description": "A rugged moc-toe boot that combines heritage aesthetics with refined finishing.",
+      "price": 380,
+      "category": "Moc Toe Boots",
+      "images": [
+        "https://www.grantstoneshoes.com/cdn/shop/products/20201023-1F7A5304-Edit-Edit.jpg?v=1747243221"
+      ],
+      "brand": "Grant Stone",
+      "isActive": true,
+      "stock": 30,
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Black Chromexcel",
+        "Saddle Tan"
+      ],
+      "rating": 4.9,
+      "reviewCount": 210,
+      "features": [
+        "Goodyear Welt",
+        "Micro-Stud Rubber Sole",
+        "Full Grain Leather Insole",
+        "Steel Shank"
+      ],
+      "createdAt": "2024-02-08T14:00:00.000Z"
+    },
+    {
+      "id": 31,
+      "name": "Hanwag Alaska GTX",
+      "description": "A classic trekking boot designed for long-distance hikes with heavy packs.",
+      "price": 360,
+      "category": "Hiking Boots",
+      "images": [
+        "https://www.bfgcdn.com/1500_1500_90/020-0063/hanwag-alaska-wide-gtx-walking-boots-detail-2.jpg"
+      ],
+      "brand": "Hanwag",
+      "isActive": true,
+      "stock": 18,
+      "sizes": [
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Black",
+        "Brown"
+      ],
+      "rating": 4.8,
+      "reviewCount": 320,
+      "features": [
+        "One-Piece Construction",
+        "Gore-Tex Lining",
+        "Vibram Fuora Sole",
+        "Resoleable"
+      ],
+      "createdAt": "2024-02-09T15:00:00.000Z"
+    },
+    {
+      "id": 32,
+      "name": "Carmina Chelsea Boot 80216",
+      "description": "Elegant Spanish craftsmanship on the Rain last. A sleek profile for formal or casual wear.",
+      "price": 550,
+      "category": "Chelsea Boots",
+      "images": [
+        "https://coveti.com/wp-content/uploads/2022/12/6567136d-ef07-43fc-a7bd-8a06f1306eaa-B-scaled.jpg"
+      ],
+      "brand": "Carmina",
+      "isActive": true,
+      "stock": 12,
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "colors": [
+        "Black Boxcalf",
+        "Brown Suede"
+      ],
+      "rating": 4.9,
+      "reviewCount": 85,
+      "features": [
+        "Goodyear Welt",
+        "Rain Last",
+        "York Sole",
+        "Full Purple Lining"
+      ],
+      "createdAt": "2024-02-10T16:00:00.000Z"
+    },
+    {
+      "id": 33,
+      "name": "Hestra x Diemme Roccia Vet",
+      "description": "A collaboration hiking boot that brings Italian alpine style to urban environments.",
+      "price": 450,
+      "category": "Hiking Boots",
+      "images": [
+        "https://a3.cdn.hhv.de/items/images/generated/970x970/01329/1329483/2-hiking-patrol-x-diemme-roccia-vet-taupe.webp"
+      ],
+      "brand": "Diemme",
+      "isActive": true,
+      "stock": 15,
+      "sizes": [
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45"
+      ],
+      "colors": [
+        "Sand Suede",
+        "Navy"
+      ],
+      "rating": 4.6,
+      "reviewCount": 110,
+      "features": [
+        "Lightweight Sole",
+        "Padded Collar",
+        "Vegetable Tanned Insole",
+        "Made in Italy"
+      ],
+      "createdAt": "2024-02-11T17:00:00.000Z"
+    },
+    {
+      "id": 34,
+      "name": "Parkhurst Delaware",
+      "description": "A refined American-made service boot with a focus on high-quality materials and classic lines.",
+      "price": 398,
+      "category": "Heritage Boots",
+      "images": [
+        "https://www.parkhurstbrand.com/cdn/shop/files/DSC09990_1024x.jpg?v=1763055679"
+      ],
+      "brand": "Parkhurst",
+      "isActive": true,
+      "stock": 20,
+      "sizes": [
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Natural Dublin",
+        "Black"
+      ],
+      "rating": 4.8,
+      "reviewCount": 140,
+      "features": [
+        "Goodyear Welt",
+        "Dainite Sole",
+        "Spanish Calf Lining",
+        "Made in USA"
+      ],
+      "createdAt": "2024-02-12T18:00:00.000Z"
+    },
+    {
+      "id": 35,
+      "name": "Oak Street Bootmakers Trench Boot",
+      "description": "Built on the Elston last, this boot is designed to be the ultimate daily wearer.",
+      "price": 488,
+      "category": "Heritage Boots",
+      "images": [
+        "https://osb-p.imgix.net/catalog/product/cache/c20e11e8755b8e0e41db1143d039b5fc/o/a/oak-street-bootmakers-trench-boot-brown-chromexcel-dainite-sole-2-b-422.jpg"
+      ],
+      "brand": "Oak Street",
+      "isActive": true,
+      "stock": 15,
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Natural Chromexcel",
+        "Brown"
+      ],
+      "rating": 4.7,
+      "reviewCount": 260,
+      "features": [
+        "Goodyear Welt",
+        "Dainite Sole",
+        "Horween Leather",
+        "Handcrafted in USA"
+      ],
+      "createdAt": "2024-02-13T19:00:00.000Z"
+    },
+    {
+      "id": 36,
+      "name": "Zamberlan 996 Vioz GTX",
+      "description": "Italian-made backpacking boot for tough terrain and long journeys.",
+      "price": 350,
+      "category": "Hiking Boots",
+      "images": [
+        "https://www.outdoorsports.com/cdn/shop/files/Footwear-Zamberlan-Mens-VIOZ_GTX-Dark_Brown-Iso_1200x.png?v=1696367143"
+      ],
+      "brand": "Zamberlan",
+      "isActive": true,
+      "stock": 25,
+      "sizes": [
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Dark Grey",
+        "Brown"
+      ],
+      "rating": 4.9,
+      "reviewCount": 850,
+      "features": [
+        "Gore-Tex Membrane",
+        "Vibram 3D Sole",
+        "Full Grain Leather",
+        "Made in Italy"
+      ],
+      "createdAt": "2024-02-14T20:00:00.000Z"
+    },
+    {
+      "id": 37,
+      "name": "Thursday Captain",
+      "description": "The boot that started a movement. High quality at a disruptive price point.",
+      "price": 199,
+      "category": "Heritage Boots",
+      "images": [
+        "https://thursdayboots.com/cdn/shop/products/1024x1024-Captain-Whiskey-3.4.jpg?v=1658505769&width=1024"
+      ],
+      "brand": "Thursday Boot Co.",
+      "isActive": true,
+      "stock": 120,
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13"
+      ],
+      "colors": [
+        "Arizona Adobe",
+        "Black Matte"
+      ],
+      "rating": 4.5,
+      "reviewCount": 25400,
+      "features": [
+        "Goodyear Welt",
+        "DuraEVA Comfort Strip",
+        "Studded Rubber Outsole",
+        "Full-Glove Leather Lining"
+      ],
+      "createdAt": "2024-02-15T21:00:00.000Z"
+    },
+    {
+      "id": 38,
+      "name": "Saint Laurent Wyatt Harness",
+      "description": "The rockstar's choice. A sleek, high-heeled harness boot that defines an era of fashion.",
+      "price": 1150,
+      "category": "BROWN ‘Wyatt’ Chelsea boots",
+      "images": [
+        "https://img.vitkac.com/uploads/product_thumb/BUTY%20592017%20BT300-9848/up/1.jpg"
+      ],
+      "brand": "Saint Laurent",
+      "isActive": true,
+      "stock": 8,
+      "sizes": [
+        "40",
+        "41",
+        "42",
+        "43",
+        "44"
+      ],
+      "colors": [
+        "Black Leather",
+        "Tobacco Suede"
+      ],
+      "rating": 4.8,
+      "reviewCount": 190,
+      "features": [
+        "Stacked Heel",
+        "Metal Harness Hardware",
+        "Leather Sole",
+        "Made in Italy"
+      ],
+      "createdAt": "2024-02-16T22:00:00.000Z"
+    },
+    {
+      "id": 39,
+      "name": "Berluti Brunico Glazed Leather",
+      "description": "The peak of luxury hiking boots. Featuring the iconic Venezia leather with a unique patina.",
+      "price": 2850,
+      "category": "Dress Boots",
+      "images": [
+        "https://www.berluti.com/dw/image/v2/BBMR_PRD/on/demandware.static/-/Sites-masterCatalog_Berluti/default/dw1f79d2db/images/S6129-001_brunico-ankle-boot_marrone-intenso_berluti_03.jpg?sw=650"
+      ],
+      "brand": "Berluti",
+      "isActive": true,
+      "stock": 2,
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "colors": [
+        "Toscano",
+        "Nero"
+      ],
+      "rating": 5,
+      "reviewCount": 12,
+      "features": [
+        "Venezia Leather",
+        "Shearling Lining",
+        "Goodyear Construction",
+        "Vibram Rubber Sole"
+      ],
+      "createdAt": "2024-02-17T23:00:00.000Z"
+    },
+    {
+      "id": 40,
+      "name": "Schnee's Hunter II",
+      "description": "The ultimate pac boot for cold weather hunting and outdoor work.",
+      "price": 329,
+      "category": "Winter Boots",
+      "images": [
+        "https://cdn11.bigcommerce.com/s-rz2weyvh01/images/stencil/1280x1280/products/15984/33828/13_Outfitter_2__32441.1760132519.jpg?c=2"
+      ],
+      "brand": "Schnee's",
+      "isActive": true,
+      "stock": 40,
+      "sizes": [
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13"
+      ],
+      "colors": [
+        "Brown"
+      ],
+      "rating": 4.9,
+      "reviewCount": 560,
+      "features": [
+        "Thinsulate Insulation",
+        "Advantage Sole",
+        "Handcrafted in Montana",
+        "Replaceable Bottoms"
+      ],
+      "createdAt": "2024-02-18T09:00:00.000Z"
+    },
+    {
+      "id": 41,
+      "name": "Meermin 101487 Balmoral",
+      "description": "High-value formal Balmoral boot in French boxcalf.",
+      "price": 245,
+      "category": "Dress Boots",
+      "images": [
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDiO9YFqxDjFnmQVH-3tjogKDKCO1EjOo__x41er3mGHFWnNbkuPUpwRKXvNzghxr72c-WECD3Taxh91Jcu5uLg2pH7ph7QGHc6peRmQSExDD2PGZkE9_cCPCwmhPvBTUbMCBPqHA9BIs/s1600/Meermin+Balmoral+Boots.jpg"
+      ],
+      "brand": "Meermin",
+      "isActive": true,
+      "stock": 20,
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "colors": [
+        "Black",
+        "Dark Brown"
+      ],
+      "rating": 4.4,
+      "reviewCount": 310,
+      "features": [
+        "Goodyear Welt",
+        "Single Leather Sole",
+        "Hiro Last",
+        "Full Grain Leather"
+      ],
+      "createdAt": "2024-02-19T10:00:00.000Z"
+    },
+    {
+      "id": 42,
+      "name": "Viberg Hiker",
+      "description": "Inspired by a classic 1970s Italian hiking boot, refined for modern use.",
+      "price": 820,
+      "category": "Hiking Boots",
+      "images": [
+        "https://rivetandhide.com/media/catalog/product/cache/7975480cd9de88228efb9a36cc427f71/2/0/20250812-jdo02246-2.jpg"
+      ],
+      "brand": "Viberg",
+      "isActive": true,
+      "stock": 8,
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Natural Roughout",
+        "Black"
+      ],
+      "rating": 4.9,
+      "reviewCount": 55,
+      "features": [
+        "Stitchdown Construction",
+        "Vibram Sierra Sole",
+        "One Piece Upper",
+        "Gunmetal Hardware"
+      ],
+      "createdAt": "2024-02-20T11:00:00.000Z"
+    },
+    {
+      "id": 43,
+      "name": "Altberg Defender",
+      "description": "The standard issue combat boot for the British Military.",
+      "price": 210,
+      "category": "Tactical Boots",
+      "images": [
+        "https://raidsupply.com/cdn/shop/files/IMG_20462-Photoroom_f77a944a-1571-49eb-8526-c6c3dee60235.jpg?v=1757701642&width=1214"
+      ],
+      "brand": "Altberg",
+      "isActive": true,
+      "stock": 50,
+      "sizes": [
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Mocha Brown"
+      ],
+      "rating": 4.8,
+      "reviewCount": 1200,
+      "features": [
+        "Vibram Tsavo Sole",
+        "Anfibio Leather",
+        "Cambrelle Lining",
+        "Water Repellent"
+      ],
+      "createdAt": "2024-02-21T12:00:00.000Z"
+    },
+    {
+      "id": 44,
+      "name": "Iron Heart x Wesco 10\" Boss",
+      "description": "A heavy-duty engineer boot built for the toughest motorcycle riders.",
+      "price": 850,
+      "category": "Motorcycle Boots",
+      "images": [
+        "https://ironheart.co.uk/cdn/shop/files/20250408-DSC_3170.jpg?v=1745315158&width=960"
+      ],
+      "brand": "Wesco",
+      "isActive": true,
+      "stock": 5,
+      "sizes": [
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Black Roughout"
+      ],
+      "rating": 5,
+      "reviewCount": 38,
+      "features": [
+        "Stitchdown Construction",
+        "Vibram 700 Sole",
+        "10 inch Height",
+        "Iron Heart Branding"
+      ],
+      "createdAt": "2024-02-22T13:00:00.000Z"
+    },
+    {
+      "id": 45,
+      "name": "Sons of Henrey Field Boot",
+      "description": "An elegant field boot featuring a textured grain leather and a split toe.",
+      "price": 420,
+      "category": "Heritage Boots",
+      "images": [
+        "https://sonsofhenrey.com/cdn/shop/files/17410_Novonappa_Angle.jpg?v=1752667844&width=2953"
+      ],
+      "brand": "Sons of Henrey",
+      "isActive": true,
+      "stock": 10,
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "colors": [
+        "Utah Calf Brown"
+      ],
+      "rating": 4.9,
+      "reviewCount": 42,
+      "features": [
+        "Goodyear Welt",
+        "Vibram Eton Sole",
+        "Elevated Finishing",
+        "Made in Spain"
+      ],
+      "createdAt": "2024-02-23T14:00:00.000Z"
+    },
+    {
+      "id": 46,
+      "name": "Haix Airpower P3",
+      "description": "Tactical boot with sun reflect technology and superior ventilation.",
+      "price": 225,
+      "category": "Tactical Boots",
+      "images": [
+        "https://www.safetyfireproducts.nl/images/webshop/product/15220/Haix%20AIRPOWER%20XR3%20_large.png"
+      ],
+      "brand": "Haix",
+      "isActive": true,
+      "stock": 35,
+      "sizes": [
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Black"
+      ],
+      "rating": 4.7,
+      "reviewCount": 840,
+      "features": [
+        "Gore-Tex Extended",
+        "Sun Reflect",
+        "Arch Support System",
+        "Antistatic"
+      ],
+      "createdAt": "2024-02-24T15:00:00.000Z"
+    },
+    {
+      "id": 47,
+      "name": "Belleville 790 ST",
+      "description": "The flight approved waterproof steel toe boot used by the US Navy and Air Force.",
+      "price": 195,
+      "category": "Tactical Boots",
+      "images": [
+        "https://s8productsgroup.com.au/cdn/shop/products/belleville-790-st-belleville.jpg?v=1604100508"
+      ],
+      "brand": "Belleville",
+      "isActive": true,
+      "stock": 60,
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13"
+      ],
+      "colors": [
+        "Tan"
+      ],
+      "rating": 4.6,
+      "reviewCount": 2100,
+      "features": [
+        "Vanguard Sole",
+        "Steel Toe",
+        "Gore-Tex Fabric",
+        "Berry Compliant"
+      ],
+      "createdAt": "2024-02-25T16:00:00.000Z"
+    },
+    {
+      "id": 48,
+      "name": "Aigle Parcours 2 ISO",
+      "description": "Anti-fatigue hunting boot with 4.5mm neoprene lining for winter warmth.",
+      "price": 240,
+      "category": "Rain Boots",
+      "images": [
+        "https://www.sklepszostak.pl/19577-large_default/kalosze-aigle-parcours-2-iso-open-khaki-.jpg"
+      ],
+      "brand": "Aigle",
+      "isActive": true,
+      "stock": 25,
+      "sizes": [
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45"
+      ],
+      "colors": [
+        "Bronze",
+        "Khaki"
+      ],
+      "rating": 4.9,
+      "reviewCount": 1850,
+      "features": [
+        "Neoprene Lining",
+        "Tri-Density Sole",
+        "Handmade in France",
+        "Waterproof Gusset"
+      ],
+      "createdAt": "2024-02-26T17:00:00.000Z"
+    },
+    {
+      "id": 49,
+      "name": "Nicks Boots Robert",
+      "description": "A classic 6 inch dress-work boot that handles the office and the workshop equally.",
+      "price": 575,
+      "category": "Work Boots",
+      "images": [
+        "https://nicksboots.com/cdn/shop/files/robert_predator_orange_55_medium_arch_side.jpeg_1.jpg?v=1750400298&width=1214https://images.unsplash.com/photo-1542281286-9e0a16bb7366"
+      ],
+      "brand": "Nicks Boots",
+      "isActive": true,
+      "stock": 12,
+      "sizes": [
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Brown Waxed Flesh",
+        "Black"
+      ],
+      "rating": 4.9,
+      "reviewCount": 130,
+      "features": [
+        "Handmade in Spokane",
+        "Vibram 430 Mini-lug",
+        "Wickett & Craig Leather",
+        "Rebuildable"
+      ],
+      "createdAt": "2024-02-27T18:00:00.000Z"
+    },
+    {
+      "id": 50,
+      "name": "Tricker's James Loafer Boot",
+      "description": "An unusual but classic high-top loafer boot, providing heritage style with slip-on ease.",
+      "price": 595,
+      "category": "Heritage Boots",
+      "images": [
+        "https://sartale.com/cdn/shop/products/James_3227_12_chesnut_burnished_brown_1.png?v=1629381263"
+      ],
+      "brand": "Tricker's",
+      "isActive": true,
+      "stock": 8,
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "colors": [
+        "Black Museum Calf"
+      ],
+      "rating": 4.7,
+      "reviewCount": 34,
+      "features": [
+        "Goodyear Welt",
+        "Leather Sole",
+        "Made in UK",
+        "Limited Edition"
+      ],
+      "createdAt": "2024-02-28T19:00:00.000Z"
+    }
+  ],
+  "carts": [
+    {
+      "id": 1,
+      "userId": 2,
+      "items": [
+        {
+          "productId": 8,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "items": [
+        {
+          "id": 2,
+          "name": "White's Boots Smokejumper",
+          "description": "The benchmark in fire boots, White's Smokejumper set the standard for the industry. Hand-sewn and hand-lasted for unparalleled arch support.",
+          "price": 659.95,
+          "category": "Work Boots",
+          "images": [
+            "https://calfiregear.com/wp-content/uploads/2020/03/400V.jpg"
+          ],
+          "brand": "White's Boots",
+          "isActive": true,
+          "stock": 18,
+          "sizes": [
+            "8",
+            "9",
+            "10",
+            "10.5",
+            "11",
+            "12"
+          ],
+          "colors": [
+            "Black Smooth",
+            "Brown Distressed"
+          ],
+          "rating": 5,
+          "reviewCount": 312,
+          "features": [
+            "Hand-Sewn Stitchdown",
+            "Vibram Fire & Ice Sole",
+            "Orthopedic Arch Support",
+            "Rebuildable/Resoleable"
+          ],
+          "createdAt": "2024-01-11T10:00:00.000Z",
+          "quantity": 1
+        },
+        {
+          "id": 1,
+          "name": "Red Wing Heritage Iron Ranger 8085",
+          "description": "An American icon, the Iron Ranger was originally built for iron miners in the 1930s. It features a signature leather toe cap, speed hooks, and a Vibram 430 Mini-lug sole.",
+          "price": 349.99,
+          "category": "Heritage Boots",
+          "images": [
+            "https://embed.widencdn.net/img/redwing/fcwacxemrq/1200x1200px/RW08085C_MUL_N1_0416.webp?keep=S&position=S&crop=no&color=F2F2F2"
+          ],
+          "brand": "Red Wing",
+          "isActive": true,
+          "stock": 45,
+          "sizes": [
+            "7",
+            "8",
+            "8.5",
+            "9",
+            "9.5",
+            "10",
+            "11",
+            "12"
+          ],
+          "colors": [
+            "Copper Rough & Tough",
+            "Amber Harness",
+            "Black Harness"
+          ],
+          "rating": 4.9,
+          "reviewCount": 1420,
+          "features": [
+            "Goodyear Welt",
+            "Puritan Triple Stitch",
+            "Chrome Hardware",
+            "Made in USA"
+          ],
+          "createdAt": "2024-01-10T09:00:00.000Z",
+          "quantity": 1
+        },
+        {
+          "id": 3,
+          "name": "Viberg Service Boot 2030",
+          "description": "The Service Boot is Viberg's most iconic product, based on an original 1930s design. Features premium Horween leather and a refined silhouette.",
+          "price": 785,
+          "category": "Heritage Boots",
+          "images": [
+            "https://viberg.com/cdn/shop/files/vibergservice-boot-2030-natural-chromexcel-930637.jpg?v=1736010897&width=640"
+          ],
+          "brand": "Viberg",
+          "isActive": true,
+          "stock": 12,
+          "sizes": [
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"
+          ],
+          "colors": [
+            "Brown Chromexcel",
+            "Natural Shell Cordovan"
+          ],
+          "rating": 4.9,
+          "reviewCount": 185,
+          "features": [
+            "Stitchdown Construction",
+            "Dainite Sole",
+            "Horween Leather",
+            "Small Batch Production"
+          ],
+          "createdAt": "2024-01-12T11:00:00.000Z",
+          "quantity": 1
+        },
+        {
+          "id": 4,
+          "name": "Nicks Boots BuilderPro",
+          "description": "Widely considered the toughest work boot on the planet. Overbuilt with 7-8oz leather to withstand extreme abuse.",
+          "price": 595,
+          "category": "Work Boots",
+          "images": [
+            "https://nicksboots.com/cdn/shop/files/builderpro_1964_brown_side.jpg?v=1750400424&width=1214"
+          ],
+          "brand": "Nicks Boots",
+          "isActive": true,
+          "stock": 25,
+          "sizes": [
+            "8",
+            "9",
+            "9.5",
+            "10",
+            "10.5",
+            "11",
+            "12",
+            "13"
+          ],
+          "colors": [
+            "Walnut Roughout",
+            "Black MaxSupport"
+          ],
+          "rating": 4.9,
+          "reviewCount": 540,
+          "features": [
+            "Screwed/Stitched Sole",
+            "10 inch Height",
+            "Oak Tanned Leather Insole",
+            "Legendary Durability"
+          ],
+          "createdAt": "2024-01-13T12:00:00.000Z",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "id": 1001,
+      "userId": 3,
+      "items": [
+        {
+          "productId": 1,
+          "name": "Red Wing Heritage Iron Ranger 8085",
+          "quantity": 1,
+          "price": 349.99,
+          "size": "9",
+          "color": "Amber Harness"
+        }
+      ],
+      "total": 349.99,
+      "status": "delivered",
+      "shippingAddress": {
+        "street": "123 Main Street",
+        "city": "New York",
+        "state": "NY",
+        "zipCode": "10001",
+        "country": "USA"
+      },
+      "paymentMethod": "credit_card",
+      "createdAt": "2024-01-15T10:30:00.000Z",
+      "deliveredAt": "2024-01-20T14:00:00.000Z"
+    }
+  ],
+  "wishlists": [
+    {
+      "id": 1,
+      "userId": 2,
+      "items": [
+        1,
+        5,
+        21
+      ],
+      "updatedAt": "2024-01-25T11:20:00.000Z"
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "productId": 1,
+      "userId": 3,
+      "rating": 5,
+      "comment": "Absolutely bulletproof boots. The break-in period is tough but they mold to your feet perfectly.",
+      "createdAt": "2024-01-22T14:30:00.000Z"
+    }
+  ]
+}
