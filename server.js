@@ -5,16 +5,11 @@ const middlewares = jsonServer.defaults();
 const cors = require('cors');
 
 server.use(cors());
-
 server.use(middlewares);
-
-server.get('/health', (req, res) => {
-  res.json({ status: 'OK', message: 'Server is running' });
-});
-
 server.use(router);
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 8000;
+
 server.listen(port, () => {
   console.log(`✅ JSON Server is running on port ${port}`);
   console.log(`📦 Database: db.json`);
