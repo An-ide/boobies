@@ -2,10 +2,10 @@ const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
 export const fetchProducts = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/products`);
+    const response = await fetch(`${API_BASE_URL}/api/data`);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
-    return Array.isArray(data) ? data : [];
+    return Array.isArray(data.products) ? data.products : [];
   } catch (error) {
     console.error('Error fetching products:', error);
     return [];
@@ -14,9 +14,11 @@ export const fetchProducts = async () => {
 
 export const fetchProductById = async (id) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/products/${id}`);
+    const response = await fetch(`${API_BASE_URL}/api/data`);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    return await response.json();
+    const data = await response.json();
+    const product = data.products.find(p => p.id === parseInt(id));
+    return product || null;
   } catch (error) {
     console.error(`Error fetching product ${id}:`, error);
     return null;
@@ -25,56 +27,22 @@ export const fetchProductById = async (id) => {
 
 export const fetchCategories = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/categories`);
+    const response = await fetch(`${API_BASE_URL}/api/data`);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
-    
-    if (Array.isArray(data)) {
-      return data;
-    }
-    return [];
+    return Array.isArray(data.categories) ? data.categories : [];
   } catch (error) {
     console.error('Error fetching categories:', error);
     return [];
   }
 };
 
-export const addProduct = async (product) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/products`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(product)
-    });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    return await response.json();
-  } catch (error) {
-    console.error('Error adding product:', error);
-    throw error;
-  }
-};
-
-export const updateProduct = async (id, updates) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/products/${id}`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(updates)
-    });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    return await response.json();
-  } catch (error) {
-    console.error(`Error updating product ${id}:`, error);
-    throw error;
-  }
-};
-
 export const fetchUsers = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/users`);
+    const response = await fetch(`${API_BASE_URL}/api/data`);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
-    return Array.isArray(data) ? data : [];
+    return Array.isArray(data.users) ? data.users : [];
   } catch (error) {
     console.error('Error fetching users:', error);
     return [];
@@ -82,92 +50,17 @@ export const fetchUsers = async () => {
 };
 
 export const updateUserStatus = async (id, status) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/users/${id}`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ isActive: status })
-    });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    return await response.json();
-  } catch (error) {
-    console.error(`Error updating user ${id}:`, error);
-    throw error;
-  }
+  return { id, isActive: status };
 };
 
 export const syncCartWithServer = async (userId, cart = null) => {
-  try {
-    if (cart !== null) {
-      const checkResponse = await fetch(`${API_BASE_URL}/carts?userId=${userId}`);
-      if (!checkResponse.ok) throw new Error(`HTTP ${checkResponse.status}`);
-      
-      const existingCarts = await checkResponse.json();
-      
-      if (existingCarts.length > 0) {
-        const cartId = existingCarts[0].id;
-        const response = await fetch(`${API_BASE_URL}/carts/${cartId}`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ 
-            id: cartId,
-            userId, 
-            items: cart 
-          })
-        });
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        return await response.json();
-      } else {
-        const response = await fetch(`${API_BASE_URL}/carts`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ 
-            userId, 
-            items: cart 
-          })
-        });
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        return await response.json();
-      }
-    } else {
-      const response = await fetch(`${API_BASE_URL}/carts?userId=${userId}`);
-      if (!response.ok) {
-        if (response.status === 404) return [];
-        throw new Error(`HTTP ${response.status}`);
-      }
-      
-      const carts = await response.json();
-      return carts.length > 0 ? carts[0].items : [];
-    }
-  } catch (error) {
-    console.error('Error syncing cart:', error);
-    return [];
-  }
+  return [];
 };
 
 export const createOrder = async (order) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/orders`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(order)
-    });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    return await response.json();
-  } catch (error) {
-    console.error('Error creating order:', error);
-    throw error;
-  }
+  return { ...order, id: Date.now() };
 };
 
 export const fetchUserOrders = async (userId) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/orders?userId=${userId}`);
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const data = await response.json();
-    return Array.isArray(data) ? data : [];
-  } catch (error) {
-    console.error('Error fetching orders:', error);
-    return [];
-  }
+  return [];
 };
