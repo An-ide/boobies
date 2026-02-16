@@ -1,36 +1,30 @@
-const jsonServer = require('json-server');
-const server = jsonServer.create();
-const router = jsonServer.router('db.json');
-const middlewares = jsonServer.defaults();
-const cors = require('cors');
+const express = require('express');
+const app = express();
+const db = require('./db.json');
 
-server.use(cors());
-server.use(middlewares);
-
-server.get('/', (req, res) => {
-  res.json({ 
-    status: 'OK', 
-    message: 'SpicX API is running',
-    endpoints: {
-      products: '/products',
-      users: '/users',
-      carts: '/carts'
-    }
-  });
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
 });
 
-server.use(router);
-
-const port = process.env.PORT || 8000;
-server.listen(port, () => {
-  console.log(`✅ JSON Server is running on port ${port}`);
-  console.log(`📦 Database: db.json`);
-  console.log(`🚀 API URL: http://localhost:${port}`);
-  
-  console.log('🔄 Server is stable and waiting for connections...');
+app.get('/data', (req, res) => {
+  res.json(db);
 });
 
-process.on('SIGTERM', () => {
-  console.log('Received SIGTERM, shutting down gracefully');
-  process.exit(0);
+app.get('/products', (req, res) => {
+  res.json(db.products || []);
+});
+
+app.get('/categories', (req, res) => {
+  res.json(db.categories || []);
+});
+
+app.get('/users', (req, res) => {
+  res.json(db.users || []);
+});
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`✅ API running on port ${port}`);
 });

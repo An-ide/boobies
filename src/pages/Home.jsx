@@ -25,58 +25,42 @@ const Home = () => {
     {
       id: 'image-1',
       src: heroBg1,
-      alt: 'Sports shoes collection',
-      title: 'Performance Unleashed',
-      subtitle: 'Engineered for athletes who demand excellence'
+      alt: 'Sports shoes collection'
     },
     {
       id: 'image-2',
       src: heroBg2,
-      alt: 'Running shoes',
-      title: 'Run with Passion',
-      subtitle: 'Lightweight shoes for your daily runs'
+      alt: 'Running shoes'
     },
     {
       id: 'image-3',
       src: heroBg3,
-      alt: 'Casual sneakers',
-      title: 'Casual Comfort',
-      subtitle: 'Style that feels as good as it looks'
+      alt: 'Casual sneakers'
     },
     {
       id: 'image-4',
       src: heroBg4,
-      alt: 'Formal leather shoes',
-      title: 'Business Class',
-      subtitle: 'Professional elegance for the workplace'
+      alt: 'Formal leather shoes'
     },
     {
       id: 'image-5',
       src: heroBg5,
-      alt: 'Hiking boots',
-      title: 'Adventure Awaits',
-      subtitle: 'Built for the trails and beyond'
+      alt: 'Hiking boots'
     },
     {
       id: 'image-6',
       src: heroBg6,
-      alt: 'Limited edition sneakers',
-      title: 'Limited Editions',
-      subtitle: 'Exclusive designs for the discerning collector'
+      alt: 'Limited edition sneakers'
     },
     {
       id: 'image-7',
       src: heroBg7,
-      alt: 'Comfort slippers',
-      title: 'Home Comfort',
-      subtitle: 'Relaxation starts from the ground up'
+      alt: 'Comfort slippers'
     },
     {
       id: 'image-8',
       src: heroBg8,
-      alt: 'All shoe collection',
-      title: 'Complete Collection',
-      subtitle: 'Find your perfect pair among thousands'
+      alt: 'All shoe collection'
     }
   ];
 
@@ -120,7 +104,6 @@ const Home = () => {
   }
 
   const featuredProducts = products.slice(0, 6);
-  const currentSlideData = heroSlides[currentSlide];
 
   if (loading) {
     return <LoadingSpinner />;
@@ -145,30 +128,20 @@ const Home = () => {
           ))}
         </div>
 
+        <div className="hero-overlay"></div>
+
         <div className="hero-content">
-          <h1>{currentSlideData.title}</h1>
-          <p>{currentSlideData.subtitle}</p>
-          <Link to="/products" className="btn-primary">
-            Shop Now
+          <Link to="/products" className="hero-link">
+            <span className="hero-link-text">SHOP NOW</span>
+            <span className="hero-link-line"></span>
           </Link>
         </div>
 
-        <button className="nav-btn prev" onClick={prevSlide} aria-label="Previous slide">
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-        <button className="nav-btn next" onClick={nextSlide} aria-label="Next slide">
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-
-        <div className="slide-dots">
+        <div className="slide-indicators">
           {heroSlides.map((_, index) => (
             <button
               key={index}
-              className={`dot ${index === currentSlide ? 'active' : ''}`}
+              className={`indicator ${index === currentSlide ? 'active' : ''}`}
               onClick={() => goToSlide(index)}
               aria-label={`Go to slide ${index + 1}`}
             />

@@ -6,11 +6,14 @@ import './Auth.css';
 const Login = () => {
   const [formData, setFormData] = useState({
     email: '',
-    password: '',
-    role: 'user'
+    password: ''
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [touched, setTouched] = useState({
+    email: false,
+    password: false
+  });
   
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -40,11 +43,17 @@ const Login = () => {
     }
   };
 
+  const handleBlur = (field) => {
+    setTouched({ ...touched, [field]: true });
+  };
+
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h1>Welcome Back</h1>
-        <p className="auth-subtitle">Sign in to your account</p>
+        <div className="auth-header">
+          <h1>Sign in</h1>
+          <p className="auth-subtitle">to continue to your account</p>
+        </div>
         
         {error && (
           <div className="error-message">
@@ -54,39 +63,29 @@ const Login = () => {
 
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
-            <label htmlFor="email">Email Address</label>
             <input
               type="email"
               id="email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              onBlur={() => handleBlur('email')}
               required
-              placeholder="Enter your email"
+              placeholder="Email address"
+              className={touched.email && !formData.email ? 'error' : ''}
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="password">Password</label>
             <input
               type="password"
               id="password"
               value={formData.password}
               onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+              onBlur={() => handleBlur('password')}
               required
-              placeholder="Enter your password"
+              placeholder="Password"
+              className={touched.password && !formData.password ? 'error' : ''}
             />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="role">Login as</label>
-            <select
-              id="role"
-              value={formData.role}
-              onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-            >
-              <option value="user">User</option>
-              <option value="admin">Admin</option>
-            </select>
           </div>
 
           <button 
@@ -94,7 +93,7 @@ const Login = () => {
             className="auth-button"
             disabled={loading}
           >
-            {loading ? 'Signing in...' : 'Sign In'}
+            {loading ? 'Signing in...' : 'Sign in'}
           </button>
         </form>
 
@@ -102,14 +101,12 @@ const Login = () => {
           <p>
             Don't have an account?{' '}
             <Link to="/register" className="auth-link">
-              Sign up here
+              Sign up
             </Link>
           </p>
-          <p>
-            <Link to="/" className="auth-link">
-              Back to Home
-            </Link>
-          </p>
+          <Link to="/" className="back-link">
+            ← Back to home
+          </Link>
         </div>
       </div>
     </div>
