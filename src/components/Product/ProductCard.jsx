@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useCart } from '../../context/CartContext';
 import './ProductCard.css';
@@ -7,6 +7,7 @@ import './ProductCard.css';
 const ProductCard = ({ product }) => {
   const { user } = useAuth();
   const { addToCart } = useCart();
+  const navigate = useNavigate();
   const [isAdding, setIsAdding] = useState(false);
   const [imageError, setImageError] = useState(false);
 
@@ -17,7 +18,7 @@ const ProductCard = ({ product }) => {
     e.stopPropagation();
     
     if (!user) {
-      window.location.href = '/login';
+      navigate('/login');
       return;
     }
     
