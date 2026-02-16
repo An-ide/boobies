@@ -2,10 +2,10 @@ const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
 export const fetchProducts = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/data`);
+    const response = await fetch(`${API_BASE_URL}/products`);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
-    return Array.isArray(data.products) ? data.products : [];
+    return Array.isArray(data) ? data : [];
   } catch (error) {
     console.error('Error fetching products:', error);
     return [];
@@ -14,11 +14,9 @@ export const fetchProducts = async () => {
 
 export const fetchProductById = async (id) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/data`);
+    const response = await fetch(`${API_BASE_URL}/products/${id}`);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const data = await response.json();
-    const product = data.products.find(p => p.id === parseInt(id));
-    return product || null;
+    return await response.json();
   } catch (error) {
     console.error(`Error fetching product ${id}:`, error);
     return null;
@@ -42,10 +40,10 @@ export const softDeleteProduct = async (id) => {
 
 export const fetchCategories = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/data`);
+    const response = await fetch(`${API_BASE_URL}/categories`);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
-    return Array.isArray(data.categories) ? data.categories : [];
+    return Array.isArray(data) ? data : [];
   } catch (error) {
     console.error('Error fetching categories:', error);
     return [];
@@ -54,10 +52,10 @@ export const fetchCategories = async () => {
 
 export const fetchUsers = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/data`);
+    const response = await fetch(`${API_BASE_URL}/users`);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
-    return Array.isArray(data.users) ? data.users : [];
+    return Array.isArray(data) ? data : [];
   } catch (error) {
     console.error('Error fetching users:', error);
     return [];
