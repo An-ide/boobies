@@ -40,33 +40,6 @@ const Cart = () => {
             </svg>
             Start Shopping
           </Link>
-          
-          <div className="empty-cart-suggestions">
-            <h3>You Might Like</h3>
-            <div className="suggestion-items">
-              <div className="suggestion-item">
-                <div className="suggestion-image" style={{ background: '#f3f4f6' }}></div>
-                <div className="suggestion-info">
-                  <span>Running Shoes</span>
-                  <small>From $89.99</small>
-                </div>
-              </div>
-              <div className="suggestion-item">
-                <div className="suggestion-image" style={{ background: '#f3f4f6' }}></div>
-                <div className="suggestion-info">
-                  <span>Casual Sneakers</span>
-                  <small>From $69.99</small>
-                </div>
-              </div>
-              <div className="suggestion-item">
-                <div className="suggestion-image" style={{ background: '#f3f4f6' }}></div>
-                <div className="suggestion-info">
-                  <span>Hiking Boots</span>
-                  <small>From $129.99</small>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     );
