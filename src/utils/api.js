@@ -70,10 +70,34 @@ export const updateUserStatus = async (id, status) => {
 export const syncCartWithServer = async (userId, cart = null) => {
   try {
     if (cart !== null) {
-      console.log('Mock: Syncing cart', userId, cart);
-      return { userId, items: cart };
+      try {
+        const response = await fetch(`${API_BASE_URL}/carts?userId=${userId}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ userId, items: cart })
+        });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return await response.json();
+      } catch (error) {
+        console.log('Cart endpoint not available, using localStorage only');
+        return { userId, items: cart };
+      }
+    } else {
+      try {
+        const response = await fetch(`${API_BASE_URL}/carts?userId=${userId}`);
+        if (!response.ok) {
+          if (response.status === 404) {
+            return [];
+          }
+          throw new Error(`HTTP ${response.status}`);
+        }
+        const data = await response.json();
+        return Array.isArray(data) ? data : [];
+      } catch (error) {
+        console.log('Cart endpoint not available, using localStorage');
+        return [];
+      }
     }
-    return [];
   } catch (error) {
     console.error('Error syncing cart:', error);
     return [];
@@ -81,7 +105,18 @@ export const syncCartWithServer = async (userId, cart = null) => {
 };
 
 export const fetchCart = async (userId) => {
-  return [];
+  try {
+    const response = await fetch(`${API_BASE_URL}/carts?userId=${userId}`);
+    if (!response.ok) {
+      if (response.status === 404) return [];
+      throw new Error(`HTTP ${response.status}`);
+    }
+    const data = await response.json();
+    return Array.isArray(data) ? data : [];
+  } catch (error) {
+    console.log('Error fetching cart, using empty cart:', error);
+    return [];
+  }
 };
 
 export const createOrder = async (order) => {
