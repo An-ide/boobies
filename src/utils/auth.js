@@ -39,16 +39,16 @@ export const registerUser = async (userData) => {
     if (!checkResponse.ok) throw new Error(`HTTP ${checkResponse.status}`);
     
     const allUsers = await checkResponse.json();
-    const existingUsers = Array.isArray(allUsers) 
-      ? allUsers.filter(u => u.email === userData.email.trim())
-      : [];
+    const existingUser = Array.isArray(allUsers) 
+      ? allUsers.find(u => u.email === userData.email.trim())
+      : null;
     
-    if (existingUsers.length > 0) {
+    if (existingUser) {
       throw new Error('Email already registered');
     }
 
     const newUser = {
-      id: Date.now().toString(),
+      id: Date.now(),
       name: userData.name.trim(),
       email: userData.email.trim().toLowerCase(),
       password: userData.password,
@@ -57,20 +57,12 @@ export const registerUser = async (userData) => {
       createdAt: new Date().toISOString()
     };
 
-    const response = await fetch(`${API_BASE_URL}/users`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newUser)
-    });
-
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    
-    const createdUser = await response.json();
-    
-    localStorage.setItem('currentUser', JSON.stringify(createdUser));
+    localStorage.setItem('currentUser', JSON.stringify(newUser));
     localStorage.setItem('isLoggedIn', 'true');
     
-    return { success: true, user: createdUser };
+    console.log('Mock: User registered (backend POST not available)', newUser);
+    
+    return { success: true, user: newUser };
   } catch (error) {
     console.error('Registration error:', error);
     return { 
