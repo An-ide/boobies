@@ -35,9 +35,9 @@ export const CartProvider = ({ children }) => {
               saveCartToStorage(serverCart);
             }
           } catch (error) {
-            console.warn('Cart sync failed, using local storage:', error);
+            console.log('Cart sync skipped (server not available)');
           }
-        }, 100);
+        }, 500);
       }
     } catch (error) {
       console.error('Error loading cart:', error);
@@ -60,11 +60,7 @@ export const CartProvider = ({ children }) => {
       saveCartToStorage(newCart);
       
       if (user) {
-        setTimeout(() => {
-          syncCartWithServer(user.id, newCart).catch(err => 
-            console.warn('Background cart sync failed:', err)
-          );
-        }, 0);
+        syncCartWithServer(user.id, newCart).catch(() => {});
       }
       
       return newCart;
@@ -84,11 +80,7 @@ export const CartProvider = ({ children }) => {
       saveCartToStorage(newCart);
       
       if (user) {
-        setTimeout(() => {
-          syncCartWithServer(user.id, newCart).catch(err => 
-            console.warn('Background cart sync failed:', err)
-          );
-        }, 0);
+        syncCartWithServer(user.id, newCart).catch(() => {});
       }
       return newCart;
     });
@@ -100,11 +92,7 @@ export const CartProvider = ({ children }) => {
       saveCartToStorage(newCart);
       
       if (user) {
-        setTimeout(() => {
-          syncCartWithServer(user.id, newCart).catch(err => 
-            console.warn('Background cart sync failed:', err)
-          );
-        }, 0);
+        syncCartWithServer(user.id, newCart).catch(() => {});
       }
       return newCart;
     });
@@ -115,11 +103,7 @@ export const CartProvider = ({ children }) => {
     clearCartFromStorage();
     
     if (user) {
-      setTimeout(() => {
-        syncCartWithServer(user.id, []).catch(err => 
-          console.warn('Background cart clear failed:', err)
-        );
-      }, 0);
+      syncCartWithServer(user.id, []).catch(() => {});
     }
   };
 
@@ -131,6 +115,15 @@ export const CartProvider = ({ children }) => {
     return cart.reduce((total, item) => total + item.quantity, 0);
   };
 
+  const getSavings = () => {
+    return cart.reduce((total, item) => {
+      if (item.originalPrice && item.originalPrice > item.price) {
+        return total + ((item.originalPrice - item.price) * item.quantity);
+      }
+      return total;
+    }, 0);
+  };
+
   const value = {
     cart,
     addToCart,
@@ -138,7 +131,8 @@ export const CartProvider = ({ children }) => {
     removeFromCart,
     clearCart,
     getTotalPrice,
-    getTotalItems
+    getTotalItems,
+    getSavings
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

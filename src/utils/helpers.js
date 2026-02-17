@@ -1,40 +1,107 @@
 export const getCartFromStorage = () => {
-  const cart = localStorage.getItem('cart');
-  return cart ? JSON.parse(cart) : [];
+  try {
+    const cart = localStorage.getItem('cart');
+    return cart ? JSON.parse(cart) : [];
+  } catch (error) {
+    console.error('Error reading cart from localStorage:', error);
+    return [];
+  }
 };
 
 export const saveCartToStorage = (cart) => {
-  localStorage.setItem('cart', JSON.stringify(cart));
+  try {
+    const safeCart = Array.isArray(cart) ? cart : [];
+    const limitedCart = safeCart.slice(0, 50);
+    
+    localStorage.setItem('cart', JSON.stringify(limitedCart));
+  } catch (error) {
+    if (error.name === 'QuotaExceededError') {
+      console.warn('localStorage quota exceeded, attempting to save minimal cart...');
+      
+      try {
+        const minimalCart = (Array.isArray(cart) ? cart : []).map(item => ({
+          id: item.id,
+          quantity: item.quantity,
+          price: item.price,
+          name: item.name?.substring(0, 50),
+          image: item.images?.[0] || item.image || ''
+        })).slice(0, 30);
+        
+        localStorage.setItem('cart', JSON.stringify(minimalCart));
+      } catch (secondError) {
+        console.error('Still cannot save cart, clearing old data...');
+        try {
+          localStorage.removeItem('cart');
+          localStorage.removeItem('wishlists');
+          
+          const emergencyCart = (Array.isArray(cart) ? cart : []).map(item => ({
+            id: item.id,
+            quantity: item.quantity
+          })).slice(0, 20);
+          
+          localStorage.setItem('cart', JSON.stringify(emergencyCart));
+        } catch (finalError) {
+          console.error('Failed to save cart even after clearing:', finalError);
+        }
+      }
+    } else {
+      console.error('Error saving cart to localStorage:', error);
+    }
+  }
 };
 
 export const clearCartFromStorage = () => {
-  localStorage.removeItem('cart');
+  try {
+    localStorage.removeItem('cart');
+  } catch (error) {
+    console.error('Error clearing cart from localStorage:', error);
+  }
 };
 
 export const getWishlist = (userId) => {
-  const wishlists = JSON.parse(localStorage.getItem('wishlists') || '{}');
-  return wishlists[userId] || [];
+  try {
+    const wishlists = JSON.parse(localStorage.getItem('wishlists') || '{}');
+    return wishlists[userId] || [];
+  } catch (error) {
+    console.error('Error reading wishlist:', error);
+    return [];
+  }
 };
 
 export const addToWishlist = (userId, product) => {
-  const wishlists = JSON.parse(localStorage.getItem('wishlists') || '{}');
-  const userWishlist = wishlists[userId] || [];
-  
-  if (!userWishlist.some(item => item.id === product.id)) {
-    userWishlist.push(product);
-    wishlists[userId] = userWishlist;
-    localStorage.setItem('wishlists', JSON.stringify(wishlists));
+  try {
+    const wishlists = JSON.parse(localStorage.getItem('wishlists') || '{}');
+    const userWishlist = wishlists[userId] || [];
+    
+    if (!userWishlist.some(item => item.id === product.id)) {
+      const minimalProduct = {
+        id: product.id,
+        name: product.name?.substring(0, 50),
+        price: product.price,
+        image: product.images?.[0] || product.image || ''
+      };
+      userWishlist.push(minimalProduct);
+      wishlists[userId] = userWishlist;
+      localStorage.setItem('wishlists', JSON.stringify(wishlists));
+    }
+  } catch (error) {
+    console.error('Error adding to wishlist:', error);
   }
 };
 
 export const removeFromWishlist = (userId, productId) => {
-  const wishlists = JSON.parse(localStorage.getItem('wishlists') || '{}');
-  const userWishlist = wishlists[userId] || [];
-  const updatedWishlist = userWishlist.filter(item => item.id !== productId);
-  
-  wishlists[userId] = updatedWishlist;
-  localStorage.setItem('wishlists', JSON.stringify(wishlists));
-  return updatedWishlist;
+  try {
+    const wishlists = JSON.parse(localStorage.getItem('wishlists') || '{}');
+    const userWishlist = wishlists[userId] || [];
+    const updatedWishlist = userWishlist.filter(item => item.id !== productId);
+    
+    wishlists[userId] = updatedWishlist;
+    localStorage.setItem('wishlists', JSON.stringify(wishlists));
+    return updatedWishlist;
+  } catch (error) {
+    console.error('Error removing from wishlist:', error);
+    return [];
+  }
 };
 
 export const preventDuplicateProducts = (products, newProduct) => {
