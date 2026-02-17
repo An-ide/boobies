@@ -1,5 +1,23 @@
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
+const silentCartFetch = async (url, options = null) => {
+  try {
+    const fetchPromise = options 
+      ? fetch(url, options) 
+      : fetch(url);
+    
+    const response = await fetchPromise.catch(() => null);
+    
+    if (!response || !response.ok) {
+      return null;
+    }
+    
+    return response;
+  } catch {
+    return null;
+  }
+};
+
 export const fetchProducts = async () => {
   try {
     const response = await fetch(`${API_BASE_URL}/products`);
@@ -69,36 +87,43 @@ export const updateUserStatus = async (id, status) => {
 
 export const syncCartWithServer = async (userId, cart = null) => {
   if (cart !== null) {
-    try {
-      await fetch(`${API_BASE_URL}/carts?userId=${userId}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId, items: cart })
-      }).catch(() => {});
-    } catch {
-    }
+    const url = `${API_BASE_URL}/carts?userId=${userId}`;
+    const options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId, items: cart })
+    };
+    
+    silentCartFetch(url, options).then(() => {}).catch(() => {});
+    
     return { userId, items: cart };
   } else {
-    try {
-      const response = await fetch(`${API_BASE_URL}/carts?userId=${userId}`).catch(() => null);
-      if (response && response.ok) {
+    const url = `${API_BASE_URL}/carts?userId=${userId}`;
+    const response = await silentCartFetch(url);
+    
+    if (response) {
+      try {
         const data = await response.json();
         return Array.isArray(data) ? data : [];
+      } catch {
+        return [];
       }
-    } catch {
     }
     return [];
   }
 };
 
 export const fetchCart = async (userId) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/carts?userId=${userId}`).catch(() => null);
-    if (response && response.ok) {
+  const url = `${API_BASE_URL}/carts?userId=${userId}`;
+  const response = await silentCartFetch(url);
+  
+  if (response) {
+    try {
       const data = await response.json();
       return Array.isArray(data) ? data : [];
+    } catch {
+      return [];
     }
-  } catch {
   }
   return [];
 };
