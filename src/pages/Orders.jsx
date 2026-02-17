@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { fetchUserOrders } from '../utils/api';
 import { LoadingSpinner } from '../components/Common';
 import './Orders.css';
 
@@ -11,13 +11,18 @@ const Orders = () => {
 
   useEffect(() => {
     loadOrders();
-  }, []);
+  }, [user]);
 
   const loadOrders = async () => {
     try {
       setLoading(true);
-      const data = await fetchUserOrders(user.id);
-      setOrders(data);
+      const allOrders = JSON.parse(localStorage.getItem('orders') || '[]');
+      
+      const userOrders = user ? allOrders.filter(order => order.userId === user.id) : [];
+      
+      userOrders.sort((a, b) => new Date(b.date || b.createdAt) - new Date(a.date || a.createdAt));
+      
+      setOrders(userOrders);
     } catch (error) {
       console.error('Error loading orders:', error);
     } finally {
@@ -29,6 +34,16 @@ const Orders = () => {
     return <LoadingSpinner />;
   }
 
+  if (!user) {
+    return (
+      <div className="orders-container">
+        <h1>My Orders</h1>
+        <p>Please log in to view your orders.</p>
+        <Link to="/login" className="btn-primary">Sign In</Link>
+      </div>
+    );
+  }
+
   return (
     <div className="orders-container">
       <h1>My Orders</h1>
@@ -37,6 +52,7 @@ const Orders = () => {
         <div className="no-orders">
           <h2>No orders yet</h2>
           <p>Start shopping to see your orders here!</p>
+          <Link to="/products" className="btn-primary">Browse Products</Link>
         </div>
       ) : (
         <div className="orders-list">
@@ -46,22 +62,22 @@ const Orders = () => {
                 <div>
                   <h3>Order #{order.id}</h3>
                   <p className="order-date">
-                    {new Date(order.createdAt || new Date()).toLocaleDateString()}
+                    {new Date(order.date || order.createdAt || new Date()).toLocaleDateString()}
                   </p>
                 </div>
                 <div className="order-status">
-                  <span className={`status-badge ${order.status}`}>
-                    {order.status}
+                  <span className={`status-badge ${order.status || 'completed'}`}>
+                    {order.status || 'Completed'}
                   </span>
                   <div className="order-total">
-                    Total: ${order.total.toFixed(2)}
+                    Total: ${(order.total || 0).toFixed(2)}
                   </div>
                 </div>
               </div>
               
               <div className="order-items">
                 <h4>Items:</h4>
-                {order.items.map(item => (
+                {order.items && order.items.map(item => (
                   <div key={item.id} className="order-item">
                     <div className="order-item-info">
                       <span className="order-item-name">{item.name}</span>
