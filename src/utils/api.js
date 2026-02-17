@@ -68,61 +68,39 @@ export const updateUserStatus = async (id, status) => {
 };
 
 export const syncCartWithServer = async (userId, cart = null) => {
-  try {
-    if (cart !== null) {
-      try {
-        const response = await fetch(`${API_BASE_URL}/carts?userId=${userId}`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ userId, items: cart })
-        });
-        if (!response.ok && response.status !== 404) {
-          console.warn('Cart sync failed with status:', response.status);
-        }
-      } catch (error) {
-        if (!error.message.includes('404')) {
-          console.warn('Cart sync network error:', error);
-        }
-      }
-      return { userId, items: cart };
-    } else {
-      try {
-        const response = await fetch(`${API_BASE_URL}/carts?userId=${userId}`);
-        if (!response.ok) {
-          if (response.status === 404) {
-            return [];
-          }
-          throw new Error(`HTTP ${response.status}`);
-        }
+  if (cart !== null) {
+    try {
+      await fetch(`${API_BASE_URL}/carts?userId=${userId}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userId, items: cart })
+      }).catch(() => {});
+    } catch {
+    }
+    return { userId, items: cart };
+  } else {
+    try {
+      const response = await fetch(`${API_BASE_URL}/carts?userId=${userId}`).catch(() => null);
+      if (response && response.ok) {
         const data = await response.json();
         return Array.isArray(data) ? data : [];
-      } catch (error) {
-        if (!error.message.includes('404')) {
-          console.warn('Error fetching cart:', error);
-        }
-        return [];
       }
+    } catch {
     }
-  } catch (error) {
     return [];
   }
 };
 
 export const fetchCart = async (userId) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/carts?userId=${userId}`);
-    if (!response.ok) {
-      if (response.status === 404) return [];
-      throw new Error(`HTTP ${response.status}`);
+    const response = await fetch(`${API_BASE_URL}/carts?userId=${userId}`).catch(() => null);
+    if (response && response.ok) {
+      const data = await response.json();
+      return Array.isArray(data) ? data : [];
     }
-    const data = await response.json();
-    return Array.isArray(data) ? data : [];
-  } catch (error) {
-    if (!error.message.includes('404')) {
-      console.warn('Error fetching cart:', error);
-    }
-    return [];
+  } catch {
   }
+  return [];
 };
 
 export const createOrder = async (order) => {
