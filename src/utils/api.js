@@ -76,12 +76,15 @@ export const syncCartWithServer = async (userId, cart = null) => {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ userId, items: cart })
         });
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        return await response.json();
+        if (!response.ok && response.status !== 404) {
+          console.warn('Cart sync failed with status:', response.status);
+        }
       } catch (error) {
-        console.log('Cart endpoint not available, using localStorage only');
-        return { userId, items: cart };
+        if (!error.message.includes('404')) {
+          console.warn('Cart sync network error:', error);
+        }
       }
+      return { userId, items: cart };
     } else {
       try {
         const response = await fetch(`${API_BASE_URL}/carts?userId=${userId}`);
@@ -94,12 +97,13 @@ export const syncCartWithServer = async (userId, cart = null) => {
         const data = await response.json();
         return Array.isArray(data) ? data : [];
       } catch (error) {
-        console.log('Cart endpoint not available, using localStorage');
+        if (!error.message.includes('404')) {
+          console.warn('Error fetching cart:', error);
+        }
         return [];
       }
     }
   } catch (error) {
-    console.error('Error syncing cart:', error);
     return [];
   }
 };
@@ -114,7 +118,9 @@ export const fetchCart = async (userId) => {
     const data = await response.json();
     return Array.isArray(data) ? data : [];
   } catch (error) {
-    console.log('Error fetching cart, using empty cart:', error);
+    if (!error.message.includes('404')) {
+      console.warn('Error fetching cart:', error);
+    }
     return [];
   }
 };
