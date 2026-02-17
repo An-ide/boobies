@@ -1,9 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { useAuth } from './AuthContext';
 import { 
-  syncCartWithServer 
-} from '../utils/api';
-import { 
   getCartFromStorage, 
   saveCartToStorage, 
   clearCartFromStorage 
@@ -18,32 +15,9 @@ export const CartProvider = ({ children }) => {
   const { user } = useAuth();
 
   useEffect(() => {
-    loadCart();
+    const savedCart = getCartFromStorage();
+    setCart(savedCart || []);
   }, [user]);
-
-  const loadCart = async () => {
-    try {
-      const savedCart = getCartFromStorage();
-      setCart(savedCart || []);
-      
-      if (user) {
-        setTimeout(async () => {
-          try {
-            const serverCart = await syncCartWithServer(user.id);
-            if (serverCart && serverCart.length > 0) {
-              setCart(serverCart);
-              saveCartToStorage(serverCart);
-            }
-          } catch (error) {
-            console.log('Cart sync skipped (server not available)');
-          }
-        }, 500);
-      }
-    } catch (error) {
-      console.error('Error loading cart:', error);
-      setCart([]);
-    }
-  };
 
   const addToCart = (product, quantity = 1) => {
     setCart(prevCart => {
@@ -58,11 +32,6 @@ export const CartProvider = ({ children }) => {
       }
 
       saveCartToStorage(newCart);
-      
-      if (user) {
-        syncCartWithServer(user.id, newCart).catch(() => {});
-      }
-      
       return newCart;
     });
   };
@@ -78,10 +47,6 @@ export const CartProvider = ({ children }) => {
         item.id === productId ? { ...item, quantity } : item
       );
       saveCartToStorage(newCart);
-      
-      if (user) {
-        syncCartWithServer(user.id, newCart).catch(() => {});
-      }
       return newCart;
     });
   };
@@ -90,10 +55,6 @@ export const CartProvider = ({ children }) => {
     setCart(prevCart => {
       const newCart = prevCart.filter(item => item.id !== productId);
       saveCartToStorage(newCart);
-      
-      if (user) {
-        syncCartWithServer(user.id, newCart).catch(() => {});
-      }
       return newCart;
     });
   };
@@ -101,10 +62,6 @@ export const CartProvider = ({ children }) => {
   const clearCart = () => {
     setCart([]);
     clearCartFromStorage();
-    
-    if (user) {
-      syncCartWithServer(user.id, []).catch(() => {});
-    }
   };
 
   const getTotalPrice = () => {

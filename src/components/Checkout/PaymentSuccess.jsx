@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './PaymentSuccess.css';
 
 const PaymentSuccess = () => {
-  const [orderId] = useState(`ORD-${Date.now().toString().slice(-8)}`);
+  const location = useLocation();
+  const order = location.state?.order;
+
+  const [orderId] = useState(order?.id || `ORD-${Date.now().toString().slice(-8)}`);
   const [deliveryDate] = useState(() => {
     const date = new Date();
     date.setDate(date.getDate() + 3);
@@ -17,7 +20,6 @@ const PaymentSuccess = () => {
   const [confetti, setConfetti] = useState([]);
 
   useEffect(() => {
-    // Generate confetti
     const newConfetti = [];
     for (let i = 0; i < 50; i++) {
       newConfetti.push({
@@ -30,7 +32,6 @@ const PaymentSuccess = () => {
     }
     setConfetti(newConfetti);
 
-    // Add celebration animation
     document.body.classList.add('celebrating');
     
     return () => {
@@ -40,7 +41,6 @@ const PaymentSuccess = () => {
 
   return (
     <div className="payment-success">
-      {/* Confetti Background */}
       <div className="confetti-container">
         {confetti.map((piece) => (
           <div
@@ -57,7 +57,6 @@ const PaymentSuccess = () => {
 
       <div className="success-container">
         <div className="success-card">
-          {/* Animated Checkmark */}
           <div className="success-animation">
             <div className="checkmark-circle">
               <div className="checkmark-stem"></div>
@@ -70,7 +69,6 @@ const PaymentSuccess = () => {
             </div>
           </div>
 
-          {/* Success Message */}
           <div className="success-content">
             <h1 className="success-title">Payment Successful! 🎉</h1>
             <p className="success-message">
@@ -80,7 +78,6 @@ const PaymentSuccess = () => {
               A confirmation email with all the details has been sent to your inbox.
             </p>
 
-            {/* Order Details Card */}
             <div className="order-summary">
               <div className="summary-header">
                 <div className="summary-icon">📦</div>
@@ -104,16 +101,34 @@ const PaymentSuccess = () => {
                 </div>
                 <div className="detail-item">
                   <span className="detail-label">Payment Method</span>
-                  <span className="detail-value">Credit Card</span>
+                  <span className="detail-value">
+                    {order?.paymentMethod === 'credit-card' ? 'Credit Card' 
+                      : order?.paymentMethod === 'paypal' ? 'PayPal' 
+                      : 'Cash on Delivery'}
+                  </span>
                 </div>
               </div>
             </div>
 
-            {/* Action Buttons */}
+            {order?.items && order.items.length > 0 && (
+              <div className="order-items">
+                <h4>Items</h4>
+                {order.items.map(item => (
+                  <div key={item.id} className="order-item">
+                    <span>{item.name} x {item.quantity}</span>
+                    <span>${(item.price * item.quantity).toFixed(2)}</span>
+                  </div>
+                ))}
+                <div className="order-total">
+                  <strong>Total:</strong> ${order.total.toFixed(2)}
+                </div>
+              </div>
+            )}
+
             <div className="success-actions">
               <Link to="/orders" className="action-btn primary-btn">
                 <span className="btn-icon">📋</span>
-                View Order Details
+                View My Orders
               </Link>
               <Link to="/products" className="action-btn secondary-btn">
                 <span className="btn-icon">🛒</span>
@@ -125,7 +140,6 @@ const PaymentSuccess = () => {
               </Link>
             </div>
 
-            {/* Additional Info */}
             <div className="additional-info">
               <div className="info-item">
                 <div className="info-icon">📧</div>
@@ -145,7 +159,6 @@ const PaymentSuccess = () => {
           </div>
         </div>
 
-        {/* Floating Elements */}
         <div className="floating-element el-1">✨</div>
         <div className="floating-element el-2">🎁</div>
         <div className="floating-element el-3">🚚</div>

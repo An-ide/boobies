@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 import { useAuth } from '../../context/AuthContext';
-import { createOrder } from '../../utils/api';
 import './Checkout.css';
 
 const Checkout = () => {
@@ -30,9 +29,9 @@ const Checkout = () => {
     setProcessing(true);
 
     try {
-      // Create order
       const order = {
-        userId: user.id,
+        id: Date.now(),
+        userId: user?.id,
         items: cart,
         total: getTotalPrice(),
         shippingAddress: {
@@ -41,16 +40,17 @@ const Checkout = () => {
           zipCode: formData.zipCode
         },
         paymentMethod: formData.paymentMethod,
-        status: 'completed'
+        status: 'completed',
+        date: new Date().toISOString()
       };
 
-      await createOrder(order);
+      const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+      orders.push(order);
+      localStorage.setItem('orders', JSON.stringify(orders));
       
-      // Clear cart
       clearCart();
       
-      // Redirect to success page
-      navigate('/payment-success');
+      navigate('/payment-success', { state: { order } });
     } catch (error) {
       console.error('Checkout error:', error);
       alert('Payment failed. Please try again.');
