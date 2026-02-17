@@ -1,15 +1,40 @@
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
+const getLocalUsers = () => {
+  try {
+    const users = localStorage.getItem('registeredUsers');
+    return users ? JSON.parse(users) : [];
+  } catch {
+    return [];
+  }
+};
+
+const saveLocalUser = (user) => {
+  try {
+    const users = getLocalUsers();
+    if (!users.some(u => u.email === user.email)) {
+      users.push(user);
+      localStorage.setItem('registeredUsers', JSON.stringify(users));
+    }
+  } catch (error) {
+    console.error('Error saving local user:', error);
+  }
+};
+
 export const loginUser = async (email, password) => {
   try {
     const response = await fetch(`${API_BASE_URL}/users`);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     
-    const users = await response.json();
-    
-    const user = Array.isArray(users) 
-      ? users.find(u => u.email === email && u.password === password)
+    const serverUsers = await response.json();
+    let user = Array.isArray(serverUsers) 
+      ? serverUsers.find(u => u.email === email && u.password === password)
       : null;
+    
+    if (!user) {
+      const localUsers = getLocalUsers();
+      user = localUsers.find(u => u.email === email && u.password === password);
+    }
     
     if (!user) {
       throw new Error('Invalid email or password');
@@ -38,12 +63,18 @@ export const registerUser = async (userData) => {
     const checkResponse = await fetch(`${API_BASE_URL}/users`);
     if (!checkResponse.ok) throw new Error(`HTTP ${checkResponse.status}`);
     
-    const allUsers = await checkResponse.json();
-    const existingUser = Array.isArray(allUsers) 
-      ? allUsers.find(u => u.email === userData.email.trim())
+    const serverUsers = await checkResponse.json();
+    const existingServerUser = Array.isArray(serverUsers) 
+      ? serverUsers.find(u => u.email === userData.email.trim())
       : null;
     
-    if (existingUser) {
+    if (existingServerUser) {
+      throw new Error('Email already registered');
+    }
+
+    const localUsers = getLocalUsers();
+    const existingLocalUser = localUsers.find(u => u.email === userData.email.trim());
+    if (existingLocalUser) {
       throw new Error('Email already registered');
     }
 
@@ -57,10 +88,12 @@ export const registerUser = async (userData) => {
       createdAt: new Date().toISOString()
     };
 
+    saveLocalUser(newUser);
+    
     localStorage.setItem('currentUser', JSON.stringify(newUser));
     localStorage.setItem('isLoggedIn', 'true');
     
-    console.log('Mock: User registered (backend POST not available)', newUser);
+    console.log('Mock: User registered locally', newUser);
     
     return { success: true, user: newUser };
   } catch (error) {
