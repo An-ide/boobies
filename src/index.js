@@ -18,7 +18,7 @@ class ErrorBoundary extends React.Component {
     console.error('Error info:', errorInfo);
     
     if (error.message.includes('Objects are not valid as a React child')) {
-      console.error('⚠️ Object rendering error detected!');
+      console.error('Object rendering error detected!');
       console.error('This usually means categories or other data is objects instead of strings.');
     }
   }

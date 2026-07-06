@@ -183,7 +183,7 @@ const Header = () => {
       id: 'account',
       label: user ? 'Account' : 'Login',
       icon: <UserIcon />,
-      path: user ? '#' : '/login',
+      path: user ? '/account' : '/login',
       show: true,
       isLoggedIn: !!user
     }
@@ -259,7 +259,9 @@ const Header = () => {
                       <div className="simple-dropdown">
                         <div className="user-info-dropdown">
                           <div className="user-initial">
-                            {user.name.charAt(0).toUpperCase()}
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
                           </div>
                           <div className="user-details">
                             <div className="user-name-dropdown">{user.name}</div>
@@ -267,8 +269,17 @@ const Header = () => {
                           </div>
                         </div>
                         
+                        <Link 
+                          to="/account" 
+                          className="dropdown-option"
+                          onClick={() => setShowUserMenu(false)}
+                        >
+                          <UserIcon />
+                          <span>My Account</span>
+                        </Link>
+
                         <div className="dropdown-divider"></div>
-                        
+
                         <Link 
                           to="/orders" 
                           className="dropdown-option orders-option"
@@ -382,7 +393,9 @@ const Header = () => {
                 >
                   <div className="bottom-menu-user-info">
                     <div className="bottom-menu-avatar">
-                      {user.name.charAt(0).toUpperCase()}
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                      </svg>
                     </div>
                     <div className="bottom-menu-details">
                       <div className="bottom-menu-name">{user.name}</div>
@@ -393,6 +406,19 @@ const Header = () => {
                   <div className="bottom-menu-divider"></div>
                   
                   <div className="account-menu-options">
+                    <Link 
+                      to="/account" 
+                      className="account-menu-option"
+                      onClick={() => setShowBottomAccountMenu(false)}
+                    >
+                      <div className="account-option-icon">
+                        <UserIcon />
+                      </div>
+                      <div className="account-option-content">
+                        <div className="account-option-title">My Account</div>
+                        <div className="account-option-subtitle">Profile and settings</div>
+                      </div>
+                    </Link>
                     <Link 
                       to="/orders" 
                       className="account-menu-option orders-option"

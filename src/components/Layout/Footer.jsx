@@ -13,7 +13,7 @@ const Footer = () => {
             <li><a href="/terms-and-condition">Terms and Condition</a></li>
             <li><a href="/refund-policy">Return and Refund Policy</a></li>
             <li><a href="/shipping-policy">Shipping Policy</a></li>
-            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="https://github.com/an-ide" target="_blank" rel="noopener noreferrer">Contact Us</a></li>
           </ul>
         </div>
 

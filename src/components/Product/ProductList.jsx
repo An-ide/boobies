@@ -248,180 +248,119 @@ const ProductList = () => {
         <div className="filter-overlay" onClick={() => setShowFilters(false)}></div>
       )}
 
-      <div className={`filter-sidebar ${showFilters ? 'open' : ''}`}>
-        <div className="sidebar-header">
-          <h3>Filters</h3>
-          <div className="sidebar-controls">
-            <button 
-              className="clear-btn"
-              onClick={resetFilters}
-            >
-              Clear All
-            </button>
-            <button 
-              className="close-sidebar"
-              onClick={() => setShowFilters(false)}
-            >
-              <CloseIcon />
-            </button>
+      <div className={`filter-panel ${showFilters ? 'open' : ''}`}>
+        <div className="filter-panel-header">
+          <div className="filter-panel-title">
+            <FilterIcon />
+            <h3>Filters</h3>
+          </div>
+          <div className="filter-panel-actions">
+            {(selectedCategories.length > 0 || minRating > 0 || priceRange[0] > 0 || priceRange[1] < 1000) && (
+              <button className="filter-clear-all" onClick={resetFilters}>Clear All</button>
+            )}
+            <button className="filter-done" onClick={() => setShowFilters(false)}>Done</button>
           </div>
         </div>
-        
-        <div className="filter-content">
+
+        <div className="filter-panel-body">
           {(searchQuery || selectedCategories.length > 0 || minRating > 0 || priceRange[0] > 0 || priceRange[1] < 1000) && (
-            <div className="active-filters">
-              <h4>Active Filters</h4>
-              <div className="filter-tags">
-                {searchQuery && (
-                  <span className="filter-tag search-tag">
-                    Search: "{searchQuery}"
-                    <button 
-                      onClick={clearSearch}
-                      className="remove-tag"
-                    >
-                      ×
-                    </button>
-                  </span>
-                )}
-                {selectedCategories.map(category => (
-                  <span key={category} className="filter-tag">
-                    {category}
-                    <button 
-                      onClick={() => handleCategoryToggle(category)}
-                      className="remove-tag"
-                    >
-                      ×
-                    </button>
-                  </span>
-                ))}
-                {minRating > 0 && (
-                  <span className="filter-tag">
-                    Rating: {minRating}+
-                    <button 
-                      onClick={() => setMinRating(0)}
-                      className="remove-tag"
-                    >
-                      ×
-                    </button>
-                  </span>
-                )}
-                {(priceRange[0] > 0 || priceRange[1] < 1000) && (
-                  <span className="filter-tag">
-                    ${priceRange[0]} - ${priceRange[1]}
-                    <button 
-                      onClick={() => setPriceRange([0, 1000])}
-                      className="remove-tag"
-                    >
-                      ×
-                    </button>
-                  </span>
-                )}
-              </div>
-            </div>
-          )}
-          
-          <div className="filter-section">
-            <h4>Price Range</h4>
-            <div className="price-range">
-              <div className="price-inputs">
-                <input 
-                  type="number" 
-                  min="0" 
-                  max="1000" 
-                  value={priceRange[0]} 
-                  onChange={(e) => handlePriceChange(e, 0)}
-                  className="price-input"
-                />
-                <span className="price-separator">to</span>
-                <input 
-                  type="number" 
-                  min="0" 
-                  max="1000" 
-                  value={priceRange[1]} 
-                  onChange={(e) => handlePriceChange(e, 1)}
-                  className="price-input"
-                />
-              </div>
-              <input 
-                type="range" 
-                min="0" 
-                max="1000" 
-                value={priceRange[0]} 
-                onChange={(e) => handlePriceChange(e, 0)}
-                className="range-slider min"
-              />
-              <input 
-                type="range" 
-                min="0" 
-                max="1000" 
-                value={priceRange[1]} 
-                onChange={(e) => handlePriceChange(e, 1)}
-                className="range-slider max"
-              />
-              <div className="price-labels">
-                <span>$0</span>
-                <span>$500</span>
-                <span>$1000</span>
-              </div>
-            </div>
-          </div>
-          
-          {categories && categories.length > 0 && (
-            <div className="filter-section">
-              <h4>Categories</h4>
-              <div className="category-list">
-                {categories.map(category => (
-                  <label key={category} className="category-item">
-                    <input 
-                      type="checkbox" 
-                      checked={selectedCategories.includes(category)}
-                      onChange={() => handleCategoryToggle(category)}
-                    />
-                    <span>{category}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-          )}
-          
-          <div className="filter-section">
-            <h4>Minimum Rating</h4>
-            <div className="rating-filter">
-              {[5, 4, 3, 2].map(rating => (
-                <label key={rating} className="rating-item">
-                  <input 
-                    type="radio" 
-                    name="rating" 
-                    checked={minRating === rating}
-                    onChange={() => setMinRating(rating)}
-                  />
-                  <span className="stars">
-                    {[...Array(5)].map((_, i) => (
-                      <span key={i} className={i < rating ? 'star-filled' : 'star-empty'}>
-                        ★
-                      </span>
-                    ))}
-                  </span>
-                  <span className="rating-text">& up</span>
-                </label>
+            <div className="active-tags">
+              {searchQuery && (
+                <span className="active-tag">
+                  "{searchQuery}"
+                  <button onClick={clearSearch}><CloseIcon /></button>
+                </span>
+              )}
+              {selectedCategories.map(cat => (
+                <span key={cat} className="active-tag">
+                  {cat}
+                  <button onClick={() => handleCategoryToggle(cat)}><CloseIcon /></button>
+                </span>
               ))}
-              <button 
-                className="clear-rating"
-                onClick={() => setMinRating(0)}
-              >
-                Any Rating
-              </button>
+              {minRating > 0 && (
+                <span className="active-tag">
+                  {minRating}+ stars
+                  <button onClick={() => setMinRating(0)}><CloseIcon /></button>
+                </span>
+              )}
+              {(priceRange[0] > 0 || priceRange[1] < 1000) && (
+                <span className="active-tag">
+                  ${priceRange[0]}-${priceRange[1]}
+                  <button onClick={() => setPriceRange([0, 1000])}><CloseIcon /></button>
+                </span>
+              )}
+            </div>
+          )}
+
+          <div className="filter-panel-grid">
+            {categories && categories.length > 0 && (
+              <div className="filter-block">
+                <h4>Category</h4>
+                <div className="filter-pills">
+                  {categories.map(cat => (
+                    <button
+                      key={cat}
+                      className={`filter-pill ${selectedCategories.includes(cat) ? 'active' : ''}`}
+                      onClick={() => handleCategoryToggle(cat)}
+                    >
+                      {cat}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <div className="filter-block">
+              <h4>Price</h4>
+              <div className="filter-price">
+                <div className="filter-price-inputs">
+                  <div className="filter-price-field">
+                    <span className="filter-price-currency">$</span>
+                    <input type="number" min="0" max="1000" value={priceRange[0]} onChange={(e) => handlePriceChange(e, 0)} />
+                  </div>
+                  <span className="filter-price-to">to</span>
+                  <div className="filter-price-field">
+                    <span className="filter-price-currency">$</span>
+                    <input type="number" min="0" max="1000" value={priceRange[1]} onChange={(e) => handlePriceChange(e, 1)} />
+                  </div>
+                </div>
+                <div className="filter-price-slider">
+                  <div className="filter-price-track">
+                    <div className="filter-price-fill" style={{ left: `${(priceRange[0] / 1000) * 100}%`, width: `${((priceRange[1] - priceRange[0]) / 1000) * 100}%` }}></div>
+                  </div>
+                  <input type="range" min="0" max="1000" value={priceRange[0]} onChange={(e) => handlePriceChange(e, 0)} className="filter-range-input" />
+                  <input type="range" min="0" max="1000" value={priceRange[1]} onChange={(e) => handlePriceChange(e, 1)} className="filter-range-input" />
+                </div>
+                <div className="filter-price-labels">
+                  <span>$0</span>
+                  <span>$500</span>
+                  <span>$1,000+</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="filter-block">
+              <h4>Rating</h4>
+              <div className="filter-ratings">
+                {[5, 4, 3, 2].map(rating => (
+                  <button
+                    key={rating}
+                    className={`filter-rating-btn ${minRating === rating ? 'active' : ''}`}
+                    onClick={() => setMinRating(minRating === rating ? 0 : rating)}
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <span>{rating}</span>
+                  </button>
+                ))}
+                <button
+                  className={`filter-rating-btn ${minRating === 0 ? 'active' : ''}`}
+                  onClick={() => setMinRating(0)}
+                >
+                  Any
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        
-        <div className="filter-footer">
-          <button 
-            className="apply-filters-btn"
-            onClick={() => setShowFilters(false)}
-          >
-            Show {totalProducts} Products
-          </button>
         </div>
       </div>
 
@@ -436,7 +375,7 @@ const ProductList = () => {
         ) : (
           <div className="no-products">
             <div className="empty-state">
-              <div className="empty-icon">👟</div>
+              <div className="empty-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 17h16a1 1 0 0 0 1-1v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2a1 1 0 0 0 1 1z"/><path d="M6 10V6a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v4"/><path d="M16 10V6a2 2 0 0 0-2-2h-1a2 2 0 0 0-2 2v4"/><path d="M2 17v2a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2"/></svg></div>
               <h3>No Products Found</h3>
               <p>{searchQuery ? `No products found for "${searchQuery}"` : 'Try adjusting your filters'}</p>
               <div className="empty-actions">

@@ -186,7 +186,7 @@ const Home = () => {
                       <span className="featured-original-price">${product.originalPrice}</span>
                     )}
                   </div>
-                  <span className="featured-link">Shop Now →</span>
+                  <span className="featured-link">Shop Now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{marginLeft: 4, verticalAlign: 'middle'}}><polyline points="9 18 15 12 9 6"/></svg></span>
                 </div>
               </Link>
             ))}

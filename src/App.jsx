@@ -13,6 +13,11 @@ import Cart from './components/Cart/Cart';
 import Checkout from './components/Checkout/Checkout';
 import PaymentSuccess from './components/Checkout/PaymentSuccess';
 import Orders from './pages/Orders';
+import Account from './pages/Account';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsAndConditions from './pages/TermsAndConditions';
+import RefundPolicy from './pages/RefundPolicy';
+import ShippingPolicy from './pages/ShippingPolicy';
 import AdminDashboard from './components/Admin/AdminDashboard';
 import ProductManagement from './components/Admin/ProductManagement';
 import UserManagement from './components/Admin/UserManagement';
@@ -28,7 +33,7 @@ React.createElement = function(type, props, ...children) {
       const safeChildren = children.map((child, index) => {
         if (child && typeof child === 'object' && !React.isValidElement(child)) {
           if (child.id !== undefined && child.name !== undefined) {
-            console.warn('⚠️ Converting category object to string:', child);
+            console.warn('Converting category object to string:', child);
             return child.name || String(child);
           }
         }
@@ -70,7 +75,16 @@ function App() {
                   <ProtectedRoute>
                     <Orders />
                   </ProtectedRoute>
-                } />              
+                } />
+                <Route path="account" element={
+                  <ProtectedRoute>
+                    <Account />
+                  </ProtectedRoute>
+                } />
+                <Route path="privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="terms-and-condition" element={<TermsAndConditions />} />
+                <Route path="refund-policy" element={<RefundPolicy />} />
+                <Route path="shipping-policy" element={<ShippingPolicy />} />
                 <Route path="admin" element={
                   <AdminProtectedRoute>
                     <AdminDashboard />

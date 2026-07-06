@@ -1,224 +1,249 @@
-.payment-success {
+.ps-page {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(145deg, #f3f4f6 0%, #e5e7eb 100%);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  padding: 1.5rem;
+  background: #f5f7fa;
+  padding: 24px;
 }
 
-.success-card {
+.ps-card {
   background: white;
-  border-radius: 32px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  max-width: 480px;
+  border-radius: 24px;
+  max-width: 460px;
   width: 100%;
-  padding: 2.5rem;
+  padding: 40px;
+  border: 1px solid #edf0f4;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.06);
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transform: translateY(10px);
+  transition: opacity 0.5s, transform 0.5s;
 }
 
-.success-card.visible {
+.ps-card.in {
   opacity: 1;
+  transform: translateY(0);
 }
 
-.checkmark-wrapper {
+.ps-icon-wrap {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 24px;
 }
 
-.checkmark {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  display: block;
-  margin: 0 auto;
+.ps-check {
+  width: 64px;
+  height: 64px;
 }
 
-.checkmark-circle {
+.ps-check-circle {
   stroke: #10b981;
   stroke-width: 2;
   stroke-dasharray: 166;
   stroke-dashoffset: 166;
-  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+  animation: ps-stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
 }
 
-.checkmark-check {
+.ps-check-path {
   stroke: #10b981;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-dasharray: 48;
   stroke-dashoffset: 48;
-  animation: stroke 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.4s forwards;
+  animation: ps-stroke 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.4s forwards;
 }
 
-@keyframes stroke {
+@keyframes ps-stroke {
   100% { stroke-dashoffset: 0; }
 }
 
-.title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #111827;
+.ps-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #111;
   text-align: center;
-  margin: 0 0 0.5rem;
-  letter-spacing: -0.02em;
+  margin: 0 0 6px;
+  letter-spacing: -0.03em;
 }
 
-.subtitle {
-  font-size: 0.95rem;
-  color: #6b7280;
+.ps-sub {
+  font-size: 14px;
+  color: #888;
   text-align: center;
-  margin-bottom: 2rem;
+  margin: 0 0 28px;
   line-height: 1.5;
 }
 
-.order-summary {
-  background: #f9fafb;
-  border-radius: 24px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  border: 1px solid #e5e7eb;
+.ps-summary {
+  background: #f8f9fb;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 24px;
 }
 
-.summary-row {
+.ps-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 0;
-  color: #374151;
+  padding: 6px 0;
 }
 
-.summary-row:not(:last-child) {
-  border-bottom: 1px solid #e5e7eb;
-  margin-bottom: 0.25rem;
+.ps-label {
+  font-size: 13px;
+  color: #999;
 }
 
-.summary-row strong {
-  color: #111827;
+.ps-val {
+  font-size: 14px;
   font-weight: 600;
+  color: #111;
 }
 
-.payment-badge {
-  background: #e5e7eb;
-  padding: 0.25rem 0.75rem;
-  border-radius: 30px;
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: #1f2937;
+.ps-badge {
+  font-size: 12px;
+  font-weight: 600;
+  color: #111;
+  background: #edf0f4;
+  padding: 3px 10px;
+  border-radius: 6px;
 }
 
-.items-divider {
+.ps-divider {
   height: 1px;
-  background: #e5e7eb;
-  margin: 0.75rem 0;
+  background: #e5e8ed;
+  margin: 12px 0;
 }
 
-.item-row {
+.ps-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0.4rem 0;
-  color: #4b5563;
-  font-size: 0.95rem;
+  justify-content: space-between;
+  padding: 6px 0;
 }
 
-.item-qty {
-  color: #9ca3af;
-  font-size: 0.8rem;
-  margin-left: 0.25rem;
-}
-
-.total-row {
+.ps-item-left {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-top: 0.75rem;
-  padding-top: 0.75rem;
-  border-top: 2px solid #d1d5db;
+  gap: 10px;
+  min-width: 0;
+  flex: 1;
+}
+
+.ps-item-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #eee;
+  flex-shrink: 0;
+}
+
+.ps-item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ps-item-info {
+  min-width: 0;
+}
+
+.ps-item-name {
+  display: block;
+  font-size: 13px;
   font-weight: 600;
-  color: #111827;
+  color: #111;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.actions {
+.ps-item-qty {
+  font-size: 12px;
+  color: #999;
+}
+
+.ps-item-price {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111;
+  flex-shrink: 0;
+}
+
+.ps-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  margin-top: 8px;
+  border-top: 1.5px solid #e5e8ed;
+  font-size: 15px;
+  color: #555;
+}
+
+.ps-total strong {
+  font-size: 18px;
+  font-weight: 800;
+  color: #111;
+}
+
+.ps-actions {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
-.btn {
+.ps-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.875rem 1.25rem;
-  border-radius: 40px;
-  font-weight: 600;
-  font-size: 0.95rem;
+  gap: 6px;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
   text-decoration: none;
-  transition: all 0.2s ease;
-  border: none;
-  cursor: pointer;
+  transition: all 0.15s;
 }
 
-.btn-primary {
-  background: #3b82f6;
+.ps-btn-primary {
+  background: #111;
   color: white;
-  box-shadow: 0 8px 20px -5px rgba(59, 130, 246, 0.5);
 }
 
-.btn-primary:hover {
-  background: #2563eb;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 25px -5px rgba(59, 130, 246, 0.6);
+.ps-btn-primary:hover {
+  background: #2a2a2a;
 }
 
-.btn-secondary {
+.ps-btn-secondary {
   background: white;
-  color: #1f2937;
-  border: 2px solid #e5e7eb;
+  color: #111;
+  border: 1.5px solid #e2e5e8;
 }
 
-.btn-secondary:hover {
-  border-color: #3b82f6;
-  color: #3b82f6;
-  transform: translateY(-2px);
+.ps-btn-secondary:hover {
+  border-color: #111;
 }
 
-.email-note {
+.ps-note {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem;
-  background: #f3f4f6;
-  border-radius: 40px;
-  color: #4b5563;
-  font-size: 0.85rem;
-}
-
-.email-note svg {
-  fill: #6b7280;
+  gap: 6px;
+  font-size: 13px;
+  color: #aaa;
 }
 
 @media (max-width: 480px) {
-  .success-card {
-    padding: 1.5rem;
+  .ps-card {
+    padding: 28px 24px;
   }
 
-  .title {
-    font-size: 1.6rem;
+  .ps-title {
+    font-size: 22px;
   }
 
-  .actions {
+  .ps-actions {
     grid-template-columns: 1fr;
-  }
-
-  .summary-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.25rem;
   }
 }

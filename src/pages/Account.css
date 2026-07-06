@@ -1,0 +1,257 @@
+.acct-page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+  min-height: 60vh;
+}
+
+.acct-empty {
+  text-align: center;
+  padding: 80px 24px;
+}
+
+.acct-empty svg {
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.acct-empty h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 8px;
+}
+
+.acct-empty p {
+  font-size: 14px;
+  color: #888;
+  margin: 0 0 24px;
+}
+
+.acct-btn {
+  display: inline-flex;
+  padding: 12px 32px;
+  background: #111;
+  color: white;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.acct-btn:hover {
+  background: #333;
+}
+
+.acct-profile-card {
+  background: white;
+  border: 1px solid #edf0f4;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+.acpt-cover {
+  height: 80px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+}
+
+.acpt-body {
+  text-align: center;
+  padding: 0 24px 20px;
+  margin-top: -36px;
+}
+
+.acpt-avatar-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.acct-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.acpt-badge {
+  position: absolute;
+  bottom: 0;
+  right: -4px;
+  background: #111;
+  color: white;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  padding: 2px 8px;
+  border-radius: 8px;
+  border: 2px solid white;
+}
+
+.acpt-body h1 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #111;
+  margin: 12px 0 4px;
+  letter-spacing: -0.03em;
+}
+
+.acpt-email {
+  font-size: 14px;
+  color: #888;
+  margin: 0;
+}
+
+.acct-section-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.acct-grid {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.acct-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  background: white;
+  border: 1px solid #edf0f4;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: border-color 0.15s;
+}
+
+.acct-card:hover {
+  border-color: #111;
+}
+
+.acct-card-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #f5f6f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #444;
+  flex-shrink: 0;
+}
+
+.acct-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.acct-card-body h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 2px;
+}
+
+.acct-card-body p {
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+}
+
+.acct-arrow {
+  color: #ddd;
+  flex-shrink: 0;
+}
+
+.acct-details-card {
+  background: white;
+  border: 1px solid #edf0f4;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+.acct-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f5f6f8;
+}
+
+.acct-detail-row:last-child {
+  border-bottom: none;
+}
+
+.acct-detail-label {
+  font-size: 13px;
+  color: #999;
+  font-weight: 500;
+}
+
+.acct-detail-value {
+  font-size: 14px;
+  color: #111;
+  font-weight: 600;
+}
+
+.acct-logout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  background: white;
+  border: 1px solid #fee2e2;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #dc2626;
+  cursor: pointer;
+  transition: background 0.15s;
+  width: 100%;
+}
+
+.acct-logout:hover {
+  background: #fef2f2;
+}
+
+@media (max-width: 480px) {
+  .acct-page {
+    padding: 20px 16px 40px;
+  }
+
+  .acpt-cover {
+    height: 64px;
+  }
+
+  .acct-avatar {
+    width: 64px;
+    height: 64px;
+  }
+
+  .acpt-body h1 {
+    font-size: 20px;
+  }
+
+  .acpt-stats {
+    padding: 14px 16px;
+  }
+
+  .acct-detail-row {
+    padding: 14px 16px;
+  }
+}

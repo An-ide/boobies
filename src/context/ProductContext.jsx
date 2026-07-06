@@ -69,7 +69,7 @@ export const ProductProvider = ({ children }) => {
         processedCategories = ['Sports', 'Casual', 'Formal', 'Sneakers', 'Boots'];
       }
       
-      console.log('✅ Categories (strings only):', processedCategories);
+      console.log('Categories (strings only):', processedCategories);
       setCategories(processedCategories);
       
     } catch (error) {
